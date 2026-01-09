@@ -105,13 +105,20 @@ header nav a:hover {
   color: var(--color-primary);
 }
 
-/* Hamburger menu - always visible on right side like AT&T Business */
+/* Hamburger menu - visible on mobile only */
 header nav .nav-hamburger {
   order: 3;
   height: 22px;
   display: flex;
   align-items: center;
   flex-shrink: 0;
+}
+
+/* Hide hamburger on desktop */
+@media (width >= 900px) {
+  header nav .nav-hamburger {
+    display: none;
+  }
 }
 
 header nav .nav-hamburger button {
@@ -210,7 +217,7 @@ header nav .nav-brand a:hover {
   opacity: 0.8;
 }
 
-/* Navigation sections - hidden by default, shown in hamburger menu */
+/* Navigation sections - hidden by default on mobile, shown in hamburger menu */
 header nav .nav-sections {
   display: none;
   visibility: hidden;
@@ -248,19 +255,108 @@ header nav .nav-sections ul > li > ul > li {
   padding: 8px 0;
 }
 
-/* Desktop: nav sections still hidden (hamburger menu always used like live AT&T) */
+/* Desktop: show nav sections inline */
+@media (width >= 900px) {
+  header nav .nav-sections {
+    display: block;
+    visibility: visible;
+    order: 2;
+    flex: 0 1 auto;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections {
+    width: auto;
+    padding-top: 0;
+    border-top: none;
+    margin-top: 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul {
+    display: flex;
+    gap: 24px;
+    margin: 0;
+  }
+
+  header nav .nav-sections ul > li {
+    padding: 0;
+    border-bottom: none;
+    position: relative;
+  }
+
+  header nav .nav-sections .nav-drop {
+    padding-right: 16px;
+    cursor: pointer;
+  }
+
+  header nav .nav-sections .nav-drop::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0.4em;
+    right: 0;
+    transform: rotate(135deg);
+    width: 6px;
+    height: 6px;
+    border: 2px solid currentcolor;
+    border-radius: 0 1px 0 0;
+    border-width: 2px 2px 0 0;
+    transition: transform 0.2s ease;
+  }
+
+  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
+    top: unset;
+    bottom: 0.5em;
+    transform: rotate(315deg);
+  }
+
+  /* Dropdown menus */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul {
+    display: none;
+    position: absolute;
+    left: -16px;
+    top: 150%;
+    min-width: 200px;
+    padding: 16px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+    display: block;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-gray-light);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:last-child {
+    border-bottom: none;
+  }
+}
 
 /* Tools section - hidden (search moved to center, Sign In removed like live site) */
 header nav .nav-tools {
   display: none;
 }
 
-/* Search box - always visible and centered like AT&T Business */
+/* Search box - visible and flexible */
 header .nav-search {
   order: 2;
   flex: 1;
   max-width: 500px;
   margin: 0 16px;
+}
+
+/* Desktop: search on right after nav */
+@media (width >= 900px) {
+  header .nav-search {
+    order: 3;
+    flex: 0 1 300px;
+    max-width: 300px;
+    margin: 0;
+  }
 }
 
 header .nav-search-form {

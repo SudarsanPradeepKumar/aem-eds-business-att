@@ -212,9 +212,20 @@ export default async function decorate(block) {
   nav.appendChild(hamburger);
 
   nav.setAttribute('aria-expanded', 'false');
-  // Always use hamburger menu (like live AT&T site)
-  toggleMenu(nav, navSections, false);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, false));
+  // On mobile: use hamburger menu; on desktop: show nav sections
+  if (!isDesktop.matches) {
+    toggleMenu(nav, navSections, false);
+  }
+  isDesktop.addEventListener('change', () => {
+    if (isDesktop.matches) {
+      // Desktop: close mobile menu, CSS will show nav sections
+      nav.setAttribute('aria-expanded', 'false');
+      document.body.style.overflowY = '';
+    } else {
+      // Mobile: ensure menu is closed
+      toggleMenu(nav, navSections, false);
+    }
+  });
 
   // Create nav wrapper
   const navWrapper = document.createElement('div');

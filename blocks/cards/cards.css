@@ -143,35 +143,7 @@
   color: var(--color-accent);
 }
 
-/* Promo cards (AT&T dark blue-gray style) */
-.cards.promo > ul > li {
-  background-color: var(--color-dark-gray);
-}
-
-.cards.promo .cards-card-body {
-  padding: 32px;
-}
-
-.cards.promo .cards-card-body h3,
-.cards.promo .cards-card-body h4 {
-  font-size: var(--heading-font-size-l);
-  color: var(--color-white);
-  margin-bottom: 16px;
-}
-
-.cards.promo .cards-card-body p {
-  color: var(--color-white);
-  opacity: 0.9;
-}
-
-.cards.promo .cards-card-body a.button {
-  background-color: var(--color-light-blue);
-  color: var(--color-primary);
-}
-
-.cards.promo .cards-card-body a.button:hover {
-  background-color: var(--color-white);
-}
+/* Note: Promo cards styles moved to "Promo Hero Cards" section below */
 
 /* Feature cards (no image, icon-based) */
 .cards.features > ul > li {
@@ -206,6 +178,209 @@
 .cards.compact .cards-card-body h3,
 .cards.compact .cards-card-body h4 {
   font-size: var(--heading-font-size-s);
+}
+
+/* ===== Promo Hero Cards (AT&T asymmetric layout) ===== */
+.cards.promo > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cards.promo > ul > li {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+/* First card (large - 2/3 width on desktop) */
+.cards.promo > ul > li:first-child {
+  flex: 2 1 60%;
+}
+
+/* Second card (small - 1/3 width on desktop) */
+.cards.promo > ul > li:nth-child(2) {
+  flex: 1 1 30%;
+  flex-direction: column;
+}
+
+/* Third card (full width below) */
+.cards.promo > ul > li:nth-child(3) {
+  flex: 1 1 100%;
+}
+
+/* Promo card content layout */
+.cards.promo .cards-card-body {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards.promo .cards-card-image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* First card - image on right */
+.cards.promo > ul > li:first-child .cards-card-image {
+  order: 2;
+  flex: 0 0 45%;
+}
+
+.cards.promo > ul > li:first-child .cards-card-body {
+  order: 1;
+  flex: 1;
+}
+
+/* Second card - image at bottom */
+.cards.promo > ul > li:nth-child(2) .cards-card-image {
+  order: 2;
+  flex: 0 0 auto;
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.cards.promo > ul > li:nth-child(2) .cards-card-body {
+  order: 1;
+}
+
+/* Promo card images */
+.cards.promo > ul > li img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  aspect-ratio: auto;
+}
+
+.cards.promo > ul > li:nth-child(2) img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Promo card badge */
+.cards.promo .cards-card-body > p:first-child {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-accent, #00D1FF);
+  margin-bottom: 8px;
+}
+
+/* Promo card title */
+.cards.promo .cards-card-body strong,
+.cards.promo .cards-card-body h3 {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.cards.promo > ul > li:nth-child(2) .cards-card-body strong,
+.cards.promo > ul > li:nth-child(2) .cards-card-body h3 {
+  font-size: 22px;
+}
+
+/* Promo card description */
+.cards.promo .cards-card-body p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* Promo card small text/disclaimer */
+.cards.promo .cards-card-body p:has(a[href="#"]) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Promo card CTA button */
+.cards.promo .cards-card-body a:not([href="#"]) {
+  display: inline-block;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  padding: 12px 28px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 16px;
+  transition: all 0.2s ease;
+}
+
+.cards.promo .cards-card-body a:not([href="#"]):hover {
+  background-color: var(--color-accent, #00D1FF);
+  color: var(--color-dark);
+  transform: translateY(-2px);
+}
+
+.cards.promo .cards-card-body a:not([href="#"])::after {
+  display: none;
+}
+
+/* Second card blue button variant */
+.cards.promo > ul > li:nth-child(2) .cards-card-body a:not([href="#"]) {
+  background-color: var(--color-primary, #009FDB);
+  color: var(--color-white);
+}
+
+.cards.promo > ul > li:nth-child(2) .cards-card-body a:not([href="#"]):hover {
+  background-color: #007AAD;
+}
+
+/* Promo card link styling */
+.cards.promo .cards-card-body a[href="#"] {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.cards.promo .cards-card-body a[href="#"]::after {
+  display: none;
+}
+
+/* Mobile promo cards */
+@media (max-width: 899px) {
+  .cards.promo > ul {
+    flex-direction: column;
+  }
+
+  .cards.promo > ul > li,
+  .cards.promo > ul > li:first-child,
+  .cards.promo > ul > li:nth-child(2),
+  .cards.promo > ul > li:nth-child(3) {
+    flex: 1 1 100%;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .cards.promo > ul > li:first-child .cards-card-image,
+  .cards.promo > ul > li:first-child .cards-card-body {
+    order: unset;
+  }
+
+  .cards.promo .cards-card-image {
+    max-height: 200px;
+    overflow: hidden;
+  }
+
+  .cards.promo .cards-card-body strong,
+  .cards.promo .cards-card-body h3 {
+    font-size: 22px;
+  }
 }
 
 /* ===== Responsive ===== */

@@ -1,27 +1,123 @@
+/*
+ * Hero Block - AT&T Business Design
+ * Supports full-width hero with background image and centered content
+ */
+
+/* Container reset for full-width hero */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
+/* Main hero block */
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 48px 24px;
+  text-align: center;
+  background-color: var(--color-white);
 }
 
+/* Hero with dark background */
+.hero.dark {
+  background-color: var(--color-dark-gray);
+}
+
+.hero.dark h1,
+.hero.dark h2,
+.hero.dark p {
+  color: var(--color-white);
+}
+
+/* Hero with primary blue background */
+.hero.primary {
+  background-color: var(--color-primary);
+}
+
+.hero.primary h1,
+.hero.primary h2,
+.hero.primary p {
+  color: var(--color-white);
+}
+
+/* Hero content container */
+.hero > div,
+.hero > .hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero > .hero-content > div {
+  max-width: none;
+}
+
+/* Hero title - AT&T style */
 .hero h1 {
-  max-width: 1200px;
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing-xxl);
+  color: var(--color-dark);
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing-xl);
+  color: var(--color-dark);
+  margin: 0 0 16px;
+}
+
+/* Hero description */
+.hero p {
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+  color: var(--color-text);
+  margin: 0 0 24px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--background-color);
 }
 
+/* Hero buttons */
+.hero .button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.hero a.button {
+  min-height: var(--button-height);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  transition: var(--button-transition);
+}
+
+/* Background image support */
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   inset: 0;
-  object-fit: cover;
   box-sizing: border-box;
+}
+
+.hero picture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
 }
 
 .hero img {
@@ -30,8 +126,52 @@
   height: 100%;
 }
 
+/* Hero with background image - white text */
+.hero:has(picture) h1,
+.hero:has(picture) h2,
+.hero:has(picture) p {
+  color: var(--color-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablet and up */
+@media (width >= 768px) {
+  .hero {
+    min-height: 450px;
+    padding: 64px 32px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    letter-spacing: -1.26px;
+  }
+}
+
+/* Desktop */
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 500px;
+    padding: 80px 32px;
+  }
+
+  .hero h1 {
+    font-size: var(--heading-font-size-xxl);
+    letter-spacing: var(--heading-letter-spacing-xxl);
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+/* Large desktop */
+@media (width >= 1200px) {
+  .hero {
+    min-height: 550px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: -1.44px;
   }
 }

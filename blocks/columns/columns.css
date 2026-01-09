@@ -1,33 +1,246 @@
+/*
+ * Columns Block - AT&T Business Design
+ * Flexible multi-column layouts
+ */
+
+/* Base columns container */
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 32px;
 }
 
-.columns img {
-  width: 100%;
-}
-
+/* Individual column */
 .columns > div > div {
+  flex: 1;
   order: 1;
 }
 
+/* Image column first on mobile */
 .columns > div > .columns-img-col {
   order: 0;
 }
 
 .columns > div > .columns-img-col img {
   display: block;
+  border-radius: 8px;
+}
+
+/* Images */
+.columns img {
+  width: 100%;
+  height: auto;
+}
+
+/* Column content */
+.columns h2,
+.columns h3 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  letter-spacing: var(--heading-letter-spacing-l);
+  color: var(--color-dark);
+  margin: 0 0 16px;
+  line-height: var(--heading-line-height);
+}
+
+.columns h4 {
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  letter-spacing: var(--heading-letter-spacing-m);
+  color: var(--color-dark);
+  margin: 0 0 12px;
+}
+
+.columns p {
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+  color: var(--color-text);
+  margin: 0 0 16px;
+}
+
+.columns p:last-child {
+  margin-bottom: 0;
+}
+
+/* Column links */
+.columns a:not(.button) {
+  color: var(--link-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.columns a:not(.button):hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Column buttons */
+.columns a.button {
+  margin-top: 16px;
+}
+
+/* ===== Column Variants ===== */
+
+/* Centered columns */
+.columns.center {
+  text-align: center;
+}
+
+.columns.center > div {
+  align-items: center;
+}
+
+/* Columns with vertical centering */
+.columns.middle > div {
+  align-items: center;
+}
+
+/* Columns with cards styling */
+.columns.cards > div > div {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.columns.cards > div > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark section columns */
+.section.dark .columns h2,
+.section.dark .columns h3,
+.section.dark .columns h4 {
+  color: var(--color-white);
+}
+
+.section.dark .columns p {
+  color: var(--color-white);
+  opacity: 0.9;
+}
+
+.section.dark .columns a:not(.button) {
+  color: var(--color-accent);
+}
+
+.section.dark .columns.cards > div > div {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Primary section columns */
+.section.primary .columns h2,
+.section.primary .columns h3,
+.section.primary .columns h4,
+.section.primary .columns p {
+  color: var(--color-white);
+}
+
+/* Feature columns with icons */
+.columns.features > div > div {
+  text-align: center;
+  padding: 24px;
+}
+
+.columns.features .columns-img-col {
+  order: 0;
+}
+
+.columns.features .columns-img-col img {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* ===== Responsive ===== */
+
+@media (width >= 600px) {
+  .columns > div {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .columns > div > div {
+    flex: 1 1 45%;
+    order: unset;
+  }
+
+  .columns > div > .columns-img-col {
+    order: unset;
+  }
 }
 
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 48px;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns h2,
+  .columns h3 {
+    font-size: var(--heading-font-size-xl);
+    letter-spacing: var(--heading-letter-spacing-xl);
+  }
+
+  /* 3-column layout */
+  .columns.three > div > div {
+    flex: 1 1 30%;
+  }
+
+  /* 4-column layout */
+  .columns.four > div > div {
+    flex: 1 1 22%;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns > div {
+    gap: 64px;
+  }
+
+  .columns.cards > div > div {
+    padding: 40px;
+  }
+}
+
+/* ===== Special Layouts ===== */
+
+/* Image left, content right */
+.columns.image-left > div {
+  flex-direction: row;
+}
+
+.columns.image-left > div > .columns-img-col {
+  order: 0;
+}
+
+/* Image right, content left */
+.columns.image-right > div {
+  flex-direction: row;
+}
+
+.columns.image-right > div > .columns-img-col {
+  order: 1;
+}
+
+@media (width < 600px) {
+  .columns.image-left > div,
+  .columns.image-right > div {
+    flex-direction: column;
+  }
+
+  .columns.image-left > div > .columns-img-col,
+  .columns.image-right > div > .columns-img-col {
+    order: 0;
   }
 }

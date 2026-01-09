@@ -1,9 +1,7 @@
-# Navigation
-
-<!-- Brand/Logo Section -->
 ![AT&T Business](/icons/logo.svg)
 
-<!-- Navigation Sections -->
+---
+
 - Products
   - [Wireless](https://www.business.att.com/portfolios/mobility.html)
   - [Internet](https://www.business.att.com/portfolios/business-internet.html)
@@ -27,5 +25,6 @@
   - [Events](https://www.business.att.com/learn/events.html)
   - [Contact Sales](https://www.business.att.com/contact.html)
 
-<!-- Tools/CTA Section -->
+---
+
 - [Sign In](https://www.att.com/acctmgmt/login)

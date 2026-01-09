@@ -158,17 +158,73 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
-  });
+  // Check if we have proper 3-section structure or need to restructure
+  if (nav.children.length >= 3) {
+    // Standard structure: brand, sections, tools
+    const classes = ['brand', 'sections', 'tools'];
+    classes.forEach((c, i) => {
+      const section = nav.children[i];
+      if (section) section.classList.add(`nav-${c}`);
+    });
+  } else {
+    // Single section structure - need to restructure
+    const wrapper = nav.querySelector('.default-content-wrapper');
+    if (wrapper) {
+      // Remove H1 if present (Navigation title)
+      const h1 = wrapper.querySelector('h1');
+      if (h1) h1.remove();
+
+      // Find logo/brand (picture or img in p tag)
+      const brandP = wrapper.querySelector('p:has(picture), p:has(img)');
+      if (brandP) {
+        const brandSection = document.createElement('div');
+        brandSection.className = 'section nav-brand';
+        const brandWrapper = document.createElement('div');
+        brandWrapper.className = 'default-content-wrapper';
+        brandWrapper.appendChild(brandP.cloneNode(true));
+        brandSection.appendChild(brandWrapper);
+        brandP.remove();
+        nav.insertBefore(brandSection, nav.firstChild);
+      }
+
+      // Find nav lists (Products, Industries, Resources)
+      const navLists = wrapper.querySelectorAll(':scope > ul');
+      if (navLists.length > 0) {
+        const sectionsSection = document.createElement('div');
+        sectionsSection.className = 'section nav-sections';
+        const sectionsWrapper = document.createElement('div');
+        sectionsWrapper.className = 'default-content-wrapper';
+
+        // First list is the main nav, last might be tools
+        const mainNav = navLists[0];
+        sectionsWrapper.appendChild(mainNav.cloneNode(true));
+        sectionsSection.appendChild(sectionsWrapper);
+        nav.appendChild(sectionsSection);
+
+        // Tools section (Sign In, etc.) - usually last ul
+        if (navLists.length > 1) {
+          const toolsSection = document.createElement('div');
+          toolsSection.className = 'section nav-tools';
+          const toolsWrapper = document.createElement('div');
+          toolsWrapper.className = 'default-content-wrapper';
+          toolsWrapper.appendChild(navLists[navLists.length - 1].cloneNode(true));
+          toolsSection.appendChild(toolsWrapper);
+          nav.appendChild(toolsSection);
+        }
+
+        // Remove original wrapper
+        wrapper.parentElement?.remove();
+      }
+    }
+  }
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      brandLink.closest('.button-container').className = '';
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');

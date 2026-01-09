@@ -259,6 +259,57 @@ const industriesMegaMenuData = [
 ];
 
 /**
+ * Resources mega-menu data with icons and sub-links
+ */
+const resourcesMegaMenuData = [
+  {
+    icon: '/icons/customer-stories.svg',
+    title: 'Customer Stories',
+    links: [
+      { text: 'Success stories', url: 'https://www.business.att.com/learn/top-voices.html' },
+      { text: 'Case studies', url: 'https://www.business.att.com/learn/case-studies.html' },
+      { text: 'Testimonials', url: 'https://www.business.att.com/learn/testimonials.html' },
+    ],
+  },
+  {
+    icon: '/icons/blog.svg',
+    title: 'Blog & Articles',
+    links: [
+      { text: 'All articles', url: 'https://www.business.att.com/learn/articles.html' },
+      { text: 'Technology insights', url: 'https://www.business.att.com/learn/tech-insights.html' },
+      { text: 'Business tips', url: 'https://www.business.att.com/learn/business-tips.html' },
+    ],
+  },
+  {
+    icon: '/icons/support.svg',
+    title: 'Support',
+    links: [
+      { text: 'Help center', url: 'https://www.business.att.com/support.html' },
+      { text: 'FAQs', url: 'https://www.business.att.com/support/faqs.html' },
+      { text: 'Contact support', url: 'https://www.business.att.com/support/contact.html' },
+    ],
+  },
+  {
+    icon: '/icons/events.svg',
+    title: 'Events',
+    links: [
+      { text: 'Upcoming events', url: 'https://www.business.att.com/learn/events.html' },
+      { text: 'Webinars', url: 'https://www.business.att.com/learn/webinars.html' },
+      { text: 'On-demand videos', url: 'https://www.business.att.com/learn/videos.html' },
+    ],
+  },
+  {
+    icon: '/icons/contact.svg',
+    title: 'Contact Sales',
+    links: [
+      { text: 'Request a quote', url: 'https://www.business.att.com/contact.html' },
+      { text: 'Find a store', url: 'https://www.att.com/stores/' },
+      { text: 'Call us', url: 'https://www.business.att.com/contact/phone.html' },
+    ],
+  },
+];
+
+/**
  * Builds a mega-menu from nested navigation structure or data
  * @param {Element} navItem The nav item with dropdown
  */
@@ -266,10 +317,11 @@ function buildMegaMenu(navItem) {
   const subList = navItem.querySelector(':scope > ul');
   if (!subList) return;
 
-  // Check if this is the Products or Industries dropdown
+  // Check if this is the Products, Industries, or Resources dropdown
   const navText = navItem.textContent?.trim().toLowerCase();
   const isProducts = navText?.startsWith('products');
   const isIndustries = navText?.includes('industries') || navText?.includes('solutions');
+  const isResources = navText?.startsWith('resources');
 
   // Check if this dropdown has categories with icons (like Products)
   const hasCategories = subList.querySelector(':scope > li > picture, :scope > li > img');
@@ -391,6 +443,58 @@ function buildMegaMenu(navItem) {
     categoriesGrid.className = 'mega-menu-categories';
 
     industriesMegaMenuData.forEach((categoryData) => {
+      const category = document.createElement('div');
+      category.className = 'mega-menu-category';
+
+      // Header (icon + title inline)
+      const header = document.createElement('div');
+      header.className = 'mega-menu-category-header';
+
+      // Icon
+      const iconWrapper = document.createElement('span');
+      iconWrapper.className = 'mega-menu-icon';
+      const iconImg = document.createElement('img');
+      iconImg.src = categoryData.icon;
+      iconImg.alt = categoryData.title;
+      iconImg.loading = 'lazy';
+      iconWrapper.appendChild(iconImg);
+      header.appendChild(iconWrapper);
+
+      // Title
+      const title = document.createElement('span');
+      title.className = 'mega-menu-category-title';
+      title.textContent = categoryData.title;
+      header.appendChild(title);
+
+      category.appendChild(header);
+
+      // Links
+      const linksContainer = document.createElement('ul');
+      linksContainer.className = 'mega-menu-links';
+      categoryData.links.forEach((linkData) => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = linkData.url;
+        link.textContent = linkData.text;
+        li.appendChild(link);
+        linksContainer.appendChild(li);
+      });
+      category.appendChild(linksContainer);
+
+      categoriesGrid.appendChild(category);
+    });
+
+    megaMenu.appendChild(categoriesGrid);
+    subList.replaceWith(megaMenu);
+    navItem.classList.add('has-mega-menu');
+  } else if (isResources) {
+    // Build Resources mega-menu from data
+    const megaMenu = document.createElement('div');
+    megaMenu.className = 'mega-menu';
+    const categoriesGrid = document.createElement('div');
+    categoriesGrid.className = 'mega-menu-categories';
+
+    resourcesMegaMenuData.forEach((categoryData) => {
       const category = document.createElement('div');
       category.className = 'mega-menu-category';
 

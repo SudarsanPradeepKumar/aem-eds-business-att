@@ -60,11 +60,26 @@
     - [IoT solutions](https://www.business.att.com/industries/manufacturing/iot.html)
     - [Supply chain](https://www.business.att.com/industries/manufacturing/supply-chain.html)
 - Resources
-  - [Customer Stories](https://www.business.att.com/learn/top-voices.html)
-  - [Blog](https://www.business.att.com/learn/articles.html)
-  - [Support](https://www.business.att.com/support.html)
-  - [Events](https://www.business.att.com/learn/events.html)
-  - [Contact Sales](https://www.business.att.com/contact.html)
+  - ![Customer Stories](/icons/customer-stories.svg) Customer Stories
+    - [Success stories](https://www.business.att.com/learn/top-voices.html)
+    - [Case studies](https://www.business.att.com/learn/case-studies.html)
+    - [Testimonials](https://www.business.att.com/learn/testimonials.html)
+  - ![Blog](/icons/blog.svg) Blog & Articles
+    - [All articles](https://www.business.att.com/learn/articles.html)
+    - [Technology insights](https://www.business.att.com/learn/tech-insights.html)
+    - [Business tips](https://www.business.att.com/learn/business-tips.html)
+  - ![Support](/icons/support.svg) Support
+    - [Help center](https://www.business.att.com/support.html)
+    - [FAQs](https://www.business.att.com/support/faqs.html)
+    - [Contact support](https://www.business.att.com/support/contact.html)
+  - ![Events](/icons/events.svg) Events
+    - [Upcoming events](https://www.business.att.com/learn/events.html)
+    - [Webinars](https://www.business.att.com/learn/webinars.html)
+    - [On-demand videos](https://www.business.att.com/learn/videos.html)
+  - ![Contact](/icons/contact.svg) Contact Sales
+    - [Request a quote](https://www.business.att.com/contact.html)
+    - [Find a store](https://www.att.com/stores/)
+    - [Call us](https://www.business.att.com/contact/phone.html)
 
 ---
 

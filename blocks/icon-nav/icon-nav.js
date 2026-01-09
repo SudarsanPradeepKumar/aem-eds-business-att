@@ -2,7 +2,31 @@
  * Icon Navigation Block
  * Horizontal bar with icons and text labels (like AT&T's quick links)
  */
-export default function decorate(block) {
+
+// Map link text to icon names
+const iconMap = {
+  'phones & devices': 'phones',
+  'phone plans': 'plans',
+  'internet': 'internet',
+  'voice': 'voice',
+  'bundles': 'bundles',
+  'deals': 'deals',
+};
+
+async function loadIcon(iconName) {
+  try {
+    const resp = await fetch(`/icons/${iconName}.svg`);
+    if (resp.ok) {
+      const svg = await resp.text();
+      return svg;
+    }
+  } catch (e) {
+    // Icon not found
+  }
+  return null;
+}
+
+export default async function decorate(block) {
   const items = [...block.querySelectorAll(':scope > div')];
 
   // Create nav container
@@ -10,20 +34,23 @@ export default function decorate(block) {
   nav.className = 'icon-nav-container';
   nav.setAttribute('aria-label', 'Quick links');
 
-  items.forEach((item) => {
+  const promises = items.map(async (item) => {
     const link = item.querySelector('a');
-    const img = item.querySelector('img');
-    const text = link ? link.textContent : item.textContent.trim();
+    const text = link ? link.textContent.trim() : item.textContent.trim();
     const href = link ? link.href : '#';
 
     const navItem = document.createElement('a');
     navItem.href = href;
     navItem.className = 'icon-nav-item';
 
-    if (img) {
+    // Get icon name from map based on link text
+    const iconName = iconMap[text.toLowerCase()] || text.toLowerCase().replace(/\s+/g, '-');
+    const iconSvg = await loadIcon(iconName);
+
+    if (iconSvg) {
       const iconWrapper = document.createElement('div');
       iconWrapper.className = 'icon-nav-icon';
-      iconWrapper.appendChild(img.cloneNode(true));
+      iconWrapper.innerHTML = iconSvg;
       navItem.appendChild(iconWrapper);
     }
 
@@ -32,8 +59,11 @@ export default function decorate(block) {
     label.textContent = text;
     navItem.appendChild(label);
 
-    nav.appendChild(navItem);
+    return navItem;
   });
+
+  const navItems = await Promise.all(promises);
+  navItems.forEach((navItem) => nav.appendChild(navItem));
 
   block.textContent = '';
   block.appendChild(nav);

@@ -5,7 +5,7 @@
 
 /* Base block styles (before JS decoration) */
 .icon-nav-wrapper {
-  background-color: var(--color-white);
+  background-color: var(--color-gray-lighter, #f5f5f5);
   border-bottom: 1px solid var(--color-gray-light);
 }
 
@@ -109,6 +109,19 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* SVG icon styling - direct SVG in icon wrapper */
+.icon-nav-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--color-dark);
+  fill: none;
+  transition: stroke 0.2s ease;
+}
+
+.icon-nav-item:hover .icon-nav-icon svg {
+  stroke: var(--color-primary);
 }
 
 .icon-nav-label {

@@ -49,10 +49,10 @@
 }
 
 .icon-nav a {
-  color: var(--color-dark);
+  color: var(--color-primary, #009FDB);
   text-decoration: none;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 600;
   white-space: nowrap;
   transition: color 0.2s ease;
 }
@@ -83,7 +83,7 @@
   justify-content: center;
   padding: 16px 24px;
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--color-primary, #009FDB);
   transition: all 0.2s ease;
   border-bottom: 3px solid transparent;
   min-width: 100px;
@@ -126,7 +126,7 @@
 
 .icon-nav-label {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
 }

@@ -27,14 +27,38 @@
     - [Asset management](https://www.business.att.com/categories/asset-management.html)
     - [Management platforms](https://www.business.att.com/categories/iot-platforms.html)
 - Industries & Solutions
-  - [Small Business](https://www.business.att.com/small-business.html)
-  - [Enterprise](https://www.business.att.com/enterprise.html)
-  - [Public Sector](https://www.business.att.com/public-sector.html)
-  - [FirstNet](https://www.business.att.com/firstnet.html)
-  - [Healthcare](https://www.business.att.com/industries/healthcare.html)
-  - [Finance](https://www.business.att.com/industries/finance.html)
-  - [Retail](https://www.business.att.com/industries/retail.html)
-  - [Manufacturing](https://www.business.att.com/industries/manufacturing.html)
+  - ![Small Business](/icons/small-business.svg) Small Business
+    - [Overview](https://www.business.att.com/small-business.html)
+    - [Wireless plans](https://www.business.att.com/products/wireless-plans.html)
+    - [Internet solutions](https://www.business.att.com/products/business-fiber-internet.html)
+  - ![Enterprise](/icons/enterprise.svg) Enterprise
+    - [Overview](https://www.business.att.com/enterprise.html)
+    - [Network solutions](https://www.business.att.com/categories/networking.html)
+    - [Cloud services](https://www.business.att.com/categories/cloud.html)
+  - ![Public Sector](/icons/public-sector.svg) Public Sector
+    - [Overview](https://www.business.att.com/public-sector.html)
+    - [Government solutions](https://www.business.att.com/public-sector/government.html)
+    - [Education](https://www.business.att.com/public-sector/education.html)
+  - ![FirstNet](/icons/firstnet.svg) FirstNet
+    - [Overview](https://www.business.att.com/firstnet.html)
+    - [First responder plans](https://www.firstnet.com/plans.html)
+    - [Coverage](https://www.firstnet.com/coverage.html)
+  - ![Healthcare](/icons/healthcare.svg) Healthcare
+    - [Overview](https://www.business.att.com/industries/healthcare.html)
+    - [Telehealth](https://www.business.att.com/industries/healthcare/telehealth.html)
+    - [Connected care](https://www.business.att.com/industries/healthcare/connected-care.html)
+  - ![Finance](/icons/finance.svg) Finance
+    - [Overview](https://www.business.att.com/industries/finance.html)
+    - [Banking solutions](https://www.business.att.com/industries/finance/banking.html)
+    - [Security](https://www.business.att.com/industries/finance/security.html)
+  - ![Retail](/icons/retail.svg) Retail
+    - [Overview](https://www.business.att.com/industries/retail.html)
+    - [Point of sale](https://www.business.att.com/industries/retail/pos.html)
+    - [Customer engagement](https://www.business.att.com/industries/retail/engagement.html)
+  - ![Manufacturing](/icons/manufacturing.svg) Manufacturing
+    - [Overview](https://www.business.att.com/industries/manufacturing.html)
+    - [IoT solutions](https://www.business.att.com/industries/manufacturing/iot.html)
+    - [Supply chain](https://www.business.att.com/industries/manufacturing/supply-chain.html)
 - Resources
   - [Customer Stories](https://www.business.att.com/learn/top-voices.html)
   - [Blog](https://www.business.att.com/learn/articles.html)

@@ -180,7 +180,7 @@
   font-size: var(--heading-font-size-s);
 }
 
-/* ===== Promo Hero Cards (AT&T asymmetric layout) ===== */
+/* ===== Promo Hero Cards (AT&T style with background images) ===== */
 .cards.promo > ul {
   display: flex;
   flex-wrap: wrap;
@@ -188,11 +188,8 @@
 }
 
 .cards.promo > ul > li {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  position: relative;
   border-radius: 16px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
   min-height: 320px;
   overflow: hidden;
 }
@@ -205,7 +202,6 @@
 /* Second card (small - 1/3 width on desktop) */
 .cards.promo > ul > li:nth-child(2) {
   flex: 1 1 30%;
-  flex-direction: column;
 }
 
 /* Third card (full width below) */
@@ -213,58 +209,44 @@
   flex: 1 1 100%;
 }
 
-/* Promo card content layout */
+/* Image as background - absolutely positioned */
+.cards.promo .cards-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.cards.promo > ul > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark overlay gradient on top of image */
+.cards.promo .cards-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.75) 100%);
+  z-index: 2;
+}
+
+/* Content on top of image */
 .cards.promo .cards-card-body {
-  flex: 1;
+  position: relative;
+  z-index: 3;
   padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.cards.promo .cards-card-image {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-/* First card - image on right */
-.cards.promo > ul > li:first-child .cards-card-image {
-  order: 2;
-  flex: 0 0 45%;
-}
-
-.cards.promo > ul > li:first-child .cards-card-body {
-  order: 1;
-  flex: 1;
-}
-
-/* Second card - image at bottom */
-.cards.promo > ul > li:nth-child(2) .cards-card-image {
-  order: 2;
-  flex: 0 0 auto;
-  max-height: 180px;
-  overflow: hidden;
-}
-
-.cards.promo > ul > li:nth-child(2) .cards-card-body {
-  order: 1;
-}
-
-/* Promo card images */
-.cards.promo > ul > li img {
-  width: 100%;
-  height: auto;
-  max-height: 280px;
-  object-fit: contain;
-  aspect-ratio: auto;
-}
-
-.cards.promo > ul > li:nth-child(2) img {
-  object-fit: cover;
-  object-position: top center;
+  min-height: 280px;
 }
 
 /* Promo card badge */
@@ -363,18 +345,12 @@
   .cards.promo > ul > li:nth-child(2),
   .cards.promo > ul > li:nth-child(3) {
     flex: 1 1 100%;
-    flex-direction: column;
-    min-height: auto;
+    min-height: 280px;
   }
 
-  .cards.promo > ul > li:first-child .cards-card-image,
-  .cards.promo > ul > li:first-child .cards-card-body {
-    order: unset;
-  }
-
-  .cards.promo .cards-card-image {
-    max-height: 200px;
-    overflow: hidden;
+  .cards.promo .cards-card-body {
+    padding: 24px;
+    min-height: 240px;
   }
 
   .cards.promo .cards-card-body strong,

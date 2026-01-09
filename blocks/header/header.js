@@ -181,6 +181,84 @@ const productsMegaMenuData = [
 ];
 
 /**
+ * Industries & Solutions mega-menu data with icons and sub-links
+ */
+const industriesMegaMenuData = [
+  {
+    icon: '/icons/small-business.svg',
+    title: 'Small Business',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/small-business.html' },
+      { text: 'Wireless plans', url: 'https://www.business.att.com/products/wireless-plans.html' },
+      { text: 'Internet solutions', url: 'https://www.business.att.com/products/business-fiber-internet.html' },
+    ],
+  },
+  {
+    icon: '/icons/enterprise.svg',
+    title: 'Enterprise',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/enterprise.html' },
+      { text: 'Network solutions', url: 'https://www.business.att.com/categories/networking.html' },
+      { text: 'Cloud services', url: 'https://www.business.att.com/categories/cloud.html' },
+    ],
+  },
+  {
+    icon: '/icons/public-sector.svg',
+    title: 'Public Sector',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/public-sector.html' },
+      { text: 'Government solutions', url: 'https://www.business.att.com/public-sector/government.html' },
+      { text: 'Education', url: 'https://www.business.att.com/public-sector/education.html' },
+    ],
+  },
+  {
+    icon: '/icons/firstnet.svg',
+    title: 'FirstNet',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/firstnet.html' },
+      { text: 'First responder plans', url: 'https://www.firstnet.com/plans.html' },
+      { text: 'Coverage', url: 'https://www.firstnet.com/coverage.html' },
+    ],
+  },
+  {
+    icon: '/icons/healthcare.svg',
+    title: 'Healthcare',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/industries/healthcare.html' },
+      { text: 'Telehealth', url: 'https://www.business.att.com/industries/healthcare/telehealth.html' },
+      { text: 'Connected care', url: 'https://www.business.att.com/industries/healthcare/connected-care.html' },
+    ],
+  },
+  {
+    icon: '/icons/finance.svg',
+    title: 'Finance',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/industries/finance.html' },
+      { text: 'Banking solutions', url: 'https://www.business.att.com/industries/finance/banking.html' },
+      { text: 'Security', url: 'https://www.business.att.com/industries/finance/security.html' },
+    ],
+  },
+  {
+    icon: '/icons/retail.svg',
+    title: 'Retail',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/industries/retail.html' },
+      { text: 'Point of sale', url: 'https://www.business.att.com/industries/retail/pos.html' },
+      { text: 'Customer engagement', url: 'https://www.business.att.com/industries/retail/engagement.html' },
+    ],
+  },
+  {
+    icon: '/icons/manufacturing.svg',
+    title: 'Manufacturing',
+    links: [
+      { text: 'Overview', url: 'https://www.business.att.com/industries/manufacturing.html' },
+      { text: 'IoT solutions', url: 'https://www.business.att.com/industries/manufacturing/iot.html' },
+      { text: 'Supply chain', url: 'https://www.business.att.com/industries/manufacturing/supply-chain.html' },
+    ],
+  },
+];
+
+/**
  * Builds a mega-menu from nested navigation structure or data
  * @param {Element} navItem The nav item with dropdown
  */
@@ -188,9 +266,10 @@ function buildMegaMenu(navItem) {
   const subList = navItem.querySelector(':scope > ul');
   if (!subList) return;
 
-  // Check if this is the Products dropdown (first nav item or by text content)
+  // Check if this is the Products or Industries dropdown
   const navText = navItem.textContent?.trim().toLowerCase();
   const isProducts = navText?.startsWith('products');
+  const isIndustries = navText?.includes('industries') || navText?.includes('solutions');
 
   // Check if this dropdown has categories with icons (like Products)
   const hasCategories = subList.querySelector(':scope > li > picture, :scope > li > img');
@@ -260,6 +339,58 @@ function buildMegaMenu(navItem) {
     categoriesGrid.className = 'mega-menu-categories';
 
     productsMegaMenuData.forEach((categoryData) => {
+      const category = document.createElement('div');
+      category.className = 'mega-menu-category';
+
+      // Header (icon + title inline)
+      const header = document.createElement('div');
+      header.className = 'mega-menu-category-header';
+
+      // Icon
+      const iconWrapper = document.createElement('span');
+      iconWrapper.className = 'mega-menu-icon';
+      const iconImg = document.createElement('img');
+      iconImg.src = categoryData.icon;
+      iconImg.alt = categoryData.title;
+      iconImg.loading = 'lazy';
+      iconWrapper.appendChild(iconImg);
+      header.appendChild(iconWrapper);
+
+      // Title
+      const title = document.createElement('span');
+      title.className = 'mega-menu-category-title';
+      title.textContent = categoryData.title;
+      header.appendChild(title);
+
+      category.appendChild(header);
+
+      // Links
+      const linksContainer = document.createElement('ul');
+      linksContainer.className = 'mega-menu-links';
+      categoryData.links.forEach((linkData) => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = linkData.url;
+        link.textContent = linkData.text;
+        li.appendChild(link);
+        linksContainer.appendChild(li);
+      });
+      category.appendChild(linksContainer);
+
+      categoriesGrid.appendChild(category);
+    });
+
+    megaMenu.appendChild(categoriesGrid);
+    subList.replaceWith(megaMenu);
+    navItem.classList.add('has-mega-menu');
+  } else if (isIndustries) {
+    // Build Industries & Solutions mega-menu from data
+    const megaMenu = document.createElement('div');
+    megaMenu.className = 'mega-menu';
+    const categoriesGrid = document.createElement('div');
+    categoriesGrid.className = 'mega-menu-categories';
+
+    industriesMegaMenuData.forEach((categoryData) => {
       const category = document.createElement('div');
       category.className = 'mega-menu-category';
 

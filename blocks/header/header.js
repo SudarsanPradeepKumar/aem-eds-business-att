@@ -176,34 +176,45 @@ export default async function decorate(block) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
+        const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        toggleAllNavSections(navSections);
+        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       });
     });
   }
 
-  // hamburger for mobile
+  // Create search box (centered in header)
+  const searchBox = createSearchBox();
+
+  // hamburger menu (on the right side like AT&T Business site)
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
+  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Menu">
       <span class="nav-hamburger-icon"></span>
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
-  nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
-  // Add search box before tools
+  // Remove tools section content (hide Sign In, etc.)
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
-    const searchBox = createSearchBox();
-    navTools.insertBefore(searchBox, navTools.firstChild);
+    navTools.innerHTML = '';
   }
+
+  // Restructure nav: Brand | Search | Hamburger
+  // Insert search after brand
+  if (navBrand && navBrand.nextSibling) {
+    nav.insertBefore(searchBox, navBrand.nextSibling);
+  } else {
+    nav.appendChild(searchBox);
+  }
+
+  // Add hamburger at the end (right side)
+  nav.appendChild(hamburger);
+
+  nav.setAttribute('aria-expanded', 'false');
+  // Always use hamburger menu (like live AT&T site)
+  toggleMenu(nav, navSections, false);
+  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, false));
 
   // Create nav wrapper
   const navWrapper = document.createElement('div');

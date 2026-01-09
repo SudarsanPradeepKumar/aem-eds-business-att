@@ -68,41 +68,25 @@ header .nav-wrapper {
 
 header nav {
   box-sizing: border-box;
-  display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 0 24px;
+  justify-content: space-between;
+  gap: 16px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1264px;
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
 }
 
 header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
-  overflow-y: auto;
-  min-height: 100dvh;
-  background-color: var(--color-white);
+  flex-wrap: wrap;
 }
 
 @media (width >= 900px) {
   header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
+    gap: 32px;
     padding: 0 32px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
   }
 }
 
@@ -121,12 +105,13 @@ header nav a:hover {
   color: var(--color-primary);
 }
 
-/* Hamburger menu */
+/* Hamburger menu - always visible on right side like AT&T Business */
 header nav .nav-hamburger {
-  grid-area: hamburger;
+  order: 3;
   height: 22px;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 header nav .nav-hamburger button {
@@ -201,35 +186,32 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
-
 /* Brand/Logo */
 header .nav-brand {
-  grid-area: brand;
-  flex-basis: 128px;
+  order: 1;
+  flex-shrink: 0;
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 100px;
   height: auto;
+}
+
+@media (width >= 600px) {
+  header nav .nav-brand img {
+    width: 128px;
+  }
 }
 
 header nav .nav-brand a:hover {
   opacity: 0.8;
 }
 
-/* Navigation sections */
+/* Navigation sections - hidden by default, shown in hamburger menu */
 header nav .nav-sections {
-  grid-area: sections;
-  flex: 1 1 auto;
   display: none;
   visibility: hidden;
 }
@@ -237,8 +219,11 @@ header nav .nav-sections {
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
-  align-self: start;
+  width: 100%;
+  order: 10;
   padding-top: 24px;
+  border-top: 1px solid var(--color-gray-light);
+  margin-top: 16px;
 }
 
 header nav .nav-sections ul {
@@ -263,175 +248,92 @@ header nav .nav-sections ul > li > ul > li {
   padding: 8px 0;
 }
 
-@media (width >= 900px) {
-  header nav .nav-sections {
-    display: block;
-    visibility: visible;
-    white-space: nowrap;
-  }
+/* Desktop: nav sections still hidden (hamburger menu always used like live AT&T) */
 
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-    padding-top: 0;
-  }
-
-  header nav .nav-sections ul > li {
-    border-bottom: none;
-    padding: 0;
-  }
-
-  header nav .nav-sections .nav-drop {
-    position: relative;
-    padding-right: 16px;
-    cursor: pointer;
-  }
-
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0.4em;
-    right: 2px;
-    transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-    transition: transform 0.2s ease;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.4em;
-    transform: rotate(315deg);
-  }
-
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 32px;
-    margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
-    position: absolute;
-    left: -24px;
-    width: 220px;
-    top: 150%;
-    padding: 16px 20px;
-    background-color: var(--color-white);
-    white-space: initial;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 24px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--color-white);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--color-gray-light);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:last-child {
-    border-bottom: none;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
-    color: var(--color-primary);
-  }
-}
-
-/* Tools section (search, login, etc.) */
+/* Tools section - hidden (search moved to center, Sign In removed like live site) */
 header nav .nav-tools {
-  grid-area: tools;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-header nav .nav-tools a.button {
-  min-height: 36px;
-  padding: 0 20px;
-  font-size: 13px;
-}
-
-/* Search box */
-header .nav-search {
   display: none;
 }
 
-@media (width >= 900px) {
+/* Search box - always visible and centered like AT&T Business */
+header .nav-search {
+  order: 2;
+  flex: 1;
+  max-width: 500px;
+  margin: 0 16px;
+}
+
+header .nav-search-form {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-gray-lighter, #f5f5f5);
+  border: 1px solid var(--color-gray-light);
+  border-radius: 4px;
+  padding: 0;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+header .nav-search-form:focus-within {
+  border-color: var(--color-primary);
+}
+
+header .nav-search-form input[type="search"] {
+  border: none;
+  background: transparent;
+  padding: 10px 16px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 0;
+  outline: none;
+}
+
+header .nav-search-form input[type="search"]::placeholder {
+  color: var(--color-gray);
+}
+
+header .nav-search-form button {
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray);
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+  min-height: auto;
+}
+
+header .nav-search-form button:hover {
+  color: var(--color-primary);
+  background: transparent;
+}
+
+header .nav-search-form button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile: smaller search */
+@media (width < 600px) {
   header .nav-search {
-    display: block;
-  }
-
-  header .nav-search-form {
-    display: flex;
-    align-items: center;
-    background-color: var(--color-gray-lighter, #f5f5f5);
-    border: 1px solid var(--color-gray-light);
-    border-radius: 4px;
-    padding: 0;
-    overflow: hidden;
-    transition: border-color 0.2s ease;
-  }
-
-  header .nav-search-form:focus-within {
-    border-color: var(--color-primary);
+    max-width: none;
+    margin: 0 8px;
   }
 
   header .nav-search-form input[type="search"] {
-    border: none;
-    background: transparent;
     padding: 8px 12px;
-    font-size: 14px;
-    width: 200px;
-    outline: none;
+    font-size: 13px;
   }
 
   header .nav-search-form input[type="search"]::placeholder {
-    color: var(--color-gray);
+    font-size: 12px;
   }
 
   header .nav-search-form button {
-    background: transparent;
-    border: none;
     padding: 8px 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-gray);
-    transition: color 0.2s ease;
-  }
-
-  header .nav-search-form button:hover {
-    color: var(--color-primary);
-  }
-
-  header .nav-search-form button svg {
-    width: 18px;
-    height: 18px;
   }
 }

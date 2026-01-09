@@ -83,6 +83,8 @@
 
   /* ===== Layout ===== */
   --nav-height: 64px;
+  --top-bar-height: 35px;
+  --header-height: calc(var(--nav-height) + var(--top-bar-height));
   --content-max-width: 1200px;
   --section-padding: 40px;
 }
@@ -130,7 +132,7 @@ body.appear {
 
 /* ===== Header ===== */
 header {
-  height: var(--nav-height);
+  height: var(--header-height);
 }
 
 header .header,

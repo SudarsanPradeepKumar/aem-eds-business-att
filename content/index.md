@@ -1,17 +1,13 @@
 <!-- source: https://www.business.att.com/ -->
 
-| Section Metadata |  |
-| --- | --- |
-| Style | light-gray |
-
-| Cards |
+| Icon Nav |
 | --- |
-| ![Phones](./images/0df37b5f30fc96c9ebc20585a8c42d5f.png) **[Phones & devices](/products/phones)** |
-| ![Plans](./images/abab61d3aaadf953e053eccbd7802ec4.png) **[Phone plans](/products/plans)** |
-| ![Internet](./images/46ff63ef9570b00e799e1059212c6431.png) **[Internet](/products/internet)** |
-| ![Voice](./images/9f0054b8d96a20ee724e67021b9f892d.png) **[Voice](/products/voice)** |
-| ![Bundles](./images/f12bd2389d0aace94f754f02cb817e93.png) **[Bundles](/bundles)** |
-| ![Deals](./images/8ecbedead386f0589f39a637f3a6f0c2.png) **[Deals](/deals)** |
+| ![Phones](./images/0df37b5f30fc96c9ebc20585a8c42d5f.png) [Phones & devices](https://www.att.com/buy/phones/?smb=true) |
+| ![Plans](./images/abab61d3aaadf953e053eccbd7802ec4.png) [Phone plans](/content/products/wireless-plans) |
+| ![Internet](./images/46ff63ef9570b00e799e1059212c6431.png) [Internet](/content/portfolios/business-internet) |
+| ![Voice](./images/9f0054b8d96a20ee724e67021b9f892d.png) [Voice](/content/products/att-phone-for-business) |
+| ![Bundles](./images/f12bd2389d0aace94f754f02cb817e93.png) [Bundles](https://www.business.att.com/bundles.html) |
+| ![Deals](./images/8ecbedead386f0589f39a637f3a6f0c2.png) [Deals](https://www.business.att.com/offers.html) |
 
 ---
 

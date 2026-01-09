@@ -104,6 +104,45 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Creates the top bar with Personal/Business toggle
+ * @returns {Element} The top bar element
+ */
+function createTopBar() {
+  const topBar = document.createElement('div');
+  topBar.className = 'nav-top-bar';
+  topBar.innerHTML = `
+    <div class="nav-top-bar-content">
+      <ul class="nav-customer-type">
+        <li><a href="https://www.att.com/?customerType=personal">Personal</a></li>
+        <li class="active"><a href="/">Business</a></li>
+      </ul>
+    </div>
+  `;
+  return topBar;
+}
+
+/**
+ * Creates the search box
+ * @returns {Element} The search element
+ */
+function createSearchBox() {
+  const search = document.createElement('div');
+  search.className = 'nav-search';
+  search.innerHTML = `
+    <form class="nav-search-form" action="https://www.business.att.com/search" method="get">
+      <input type="search" name="q" placeholder="Let's find what you need..." aria-label="Search">
+      <button type="submit" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="M21 21l-4.35-4.35"></path>
+        </svg>
+      </button>
+    </form>
+  `;
+  return search;
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -159,8 +198,26 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  // Add search box before tools
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const searchBox = createSearchBox();
+    navTools.insertBefore(searchBox, navTools.firstChild);
+  }
+
+  // Create nav wrapper
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
-  block.append(navWrapper);
+
+  // Create top bar
+  const topBar = createTopBar();
+
+  // Create container with top bar and nav
+  const headerContainer = document.createElement('div');
+  headerContainer.className = 'header-container';
+  headerContainer.append(topBar);
+  headerContainer.append(navWrapper);
+
+  block.append(headerContainer);
 }

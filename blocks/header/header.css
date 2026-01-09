@@ -482,12 +482,17 @@ header .mega-menu-category {
   gap: 8px;
 }
 
-/* Category header with icon and title */
+/* Category header - icon and title inline */
+header .mega-menu-category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 header .mega-menu-category > .mega-menu-icon {
   display: inline-flex;
   align-items: center;
   color: var(--color-primary);
-  margin-bottom: 4px;
 }
 
 header .mega-menu-category > .mega-menu-icon img,
@@ -501,25 +506,7 @@ header .mega-menu-category-title {
   font-size: 16px;
   font-weight: 600;
   color: var(--color-dark);
-  display: flex;
-  align-items: center;
-  gap: 8px;
   cursor: default;
-}
-
-/* Inline icon with title */
-header .mega-menu-category {
-  position: relative;
-}
-
-header .mega-menu-category .mega-menu-icon + .mega-menu-category-title {
-  display: inline;
-}
-
-header .mega-menu-category > :first-child {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 /* Category links list */

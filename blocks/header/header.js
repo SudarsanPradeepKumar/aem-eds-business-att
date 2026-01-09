@@ -206,12 +206,16 @@ function buildMegaMenu(navItem) {
       const category = document.createElement('div');
       category.className = 'mega-menu-category';
 
+      // Header (icon + title inline)
+      const header = document.createElement('div');
+      header.className = 'mega-menu-category-header';
+
       const icon = categoryItem.querySelector(':scope > picture, :scope > img');
       if (icon) {
         const iconWrapper = document.createElement('span');
         iconWrapper.className = 'mega-menu-icon';
         iconWrapper.appendChild(icon.cloneNode(true));
-        category.appendChild(iconWrapper);
+        header.appendChild(iconWrapper);
       }
 
       const titleText = Array.from(categoryItem.childNodes)
@@ -224,8 +228,10 @@ function buildMegaMenu(navItem) {
         const title = document.createElement('span');
         title.className = 'mega-menu-category-title';
         title.textContent = titleText;
-        category.appendChild(title);
+        header.appendChild(title);
       }
+
+      category.appendChild(header);
 
       const subLinks = categoryItem.querySelector(':scope > ul');
       if (subLinks) {
@@ -257,6 +263,10 @@ function buildMegaMenu(navItem) {
       const category = document.createElement('div');
       category.className = 'mega-menu-category';
 
+      // Header (icon + title inline)
+      const header = document.createElement('div');
+      header.className = 'mega-menu-category-header';
+
       // Icon
       const iconWrapper = document.createElement('span');
       iconWrapper.className = 'mega-menu-icon';
@@ -265,13 +275,15 @@ function buildMegaMenu(navItem) {
       iconImg.alt = categoryData.title;
       iconImg.loading = 'lazy';
       iconWrapper.appendChild(iconImg);
-      category.appendChild(iconWrapper);
+      header.appendChild(iconWrapper);
 
       // Title
       const title = document.createElement('span');
       title.className = 'mega-menu-category-title';
       title.textContent = categoryData.title;
-      category.appendChild(title);
+      header.appendChild(title);
+
+      category.appendChild(header);
 
       // Links
       const linksContainer = document.createElement('ul');

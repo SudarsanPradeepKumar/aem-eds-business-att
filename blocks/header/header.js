@@ -122,6 +122,180 @@ function createTopBar() {
 }
 
 /**
+ * Products mega-menu data with icons and sub-links
+ */
+const productsMegaMenuData = [
+  {
+    icon: '/icons/wireless.svg',
+    title: 'Wireless',
+    links: [
+      { text: 'Plans & prices', url: 'https://www.business.att.com/products/wireless-plans.html' },
+      { text: 'Phones & devices', url: 'https://www.att.com/buy/phones/?smb=true' },
+      { text: 'Hotspots', url: 'https://www.att.com/buy/connected-devices-and-more/?smb=true' },
+    ],
+  },
+  {
+    icon: '/icons/internet.svg',
+    title: 'Internet',
+    links: [
+      { text: 'Fiber internet', url: 'https://www.business.att.com/products/business-fiber-internet.html' },
+      { text: 'Wireless internet', url: 'https://www.business.att.com/products/wireless-internet.html' },
+      { text: 'Dedicated internet', url: 'https://www.business.att.com/products/att-dedicated-internet.html' },
+    ],
+  },
+  {
+    icon: '/icons/voice.svg',
+    title: 'Voice & Collaboration',
+    links: [
+      { text: 'VOIP phone', url: 'https://www.business.att.com/products/att-phone-for-business.html' },
+      { text: 'Office@Hand', url: 'https://www.business.att.com/products/office-at-hand.html' },
+      { text: 'IP-Toll-Free service', url: 'https://www.business.att.com/products/ip-toll-free.html' },
+    ],
+  },
+  {
+    icon: '/icons/cybersecurity.svg',
+    title: 'Cybersecurity',
+    links: [
+      { text: 'AT&T Dynamic Defense', url: 'https://www.business.att.com/products/att-dynamic-defense.html' },
+      { text: 'Secure Access Service Edge', url: 'https://www.business.att.com/products/sase.html' },
+    ],
+  },
+  {
+    icon: '/icons/networking.svg',
+    title: 'Networking Services',
+    links: [
+      { text: 'Ethernet', url: 'https://www.business.att.com/categories/ethernet-and-transport.html' },
+      { text: 'SD-WAN', url: 'https://www.business.att.com/products/sd-wan.html' },
+      { text: 'Edge solutions', url: 'https://www.business.att.com/categories/att-on-premise-edge.html' },
+    ],
+  },
+  {
+    icon: '/icons/iot.svg',
+    title: 'Internet of Things',
+    links: [
+      { text: 'Vehicle solutions', url: 'https://www.business.att.com/categories/vehicle-solutions.html' },
+      { text: 'Asset management', url: 'https://www.business.att.com/categories/asset-management.html' },
+      { text: 'Management platforms', url: 'https://www.business.att.com/categories/iot-platforms.html' },
+    ],
+  },
+];
+
+/**
+ * Builds a mega-menu from nested navigation structure or data
+ * @param {Element} navItem The nav item with dropdown
+ */
+function buildMegaMenu(navItem) {
+  const subList = navItem.querySelector(':scope > ul');
+  if (!subList) return;
+
+  // Check if this is the Products dropdown (first nav item or by text content)
+  const navText = navItem.textContent?.trim().toLowerCase();
+  const isProducts = navText?.startsWith('products');
+
+  // Check if this dropdown has categories with icons (like Products)
+  const hasCategories = subList.querySelector(':scope > li > picture, :scope > li > img');
+
+  if (hasCategories) {
+    // Build from existing HTML structure with icons
+    const megaMenu = document.createElement('div');
+    megaMenu.className = 'mega-menu';
+    const categoriesGrid = document.createElement('div');
+    categoriesGrid.className = 'mega-menu-categories';
+
+    subList.querySelectorAll(':scope > li').forEach((categoryItem) => {
+      const category = document.createElement('div');
+      category.className = 'mega-menu-category';
+
+      const icon = categoryItem.querySelector(':scope > picture, :scope > img');
+      if (icon) {
+        const iconWrapper = document.createElement('span');
+        iconWrapper.className = 'mega-menu-icon';
+        iconWrapper.appendChild(icon.cloneNode(true));
+        category.appendChild(iconWrapper);
+      }
+
+      const titleText = Array.from(categoryItem.childNodes)
+        .filter((node) => node.nodeType === Node.TEXT_NODE)
+        .map((node) => node.textContent.trim())
+        .join('')
+        .trim();
+
+      if (titleText) {
+        const title = document.createElement('span');
+        title.className = 'mega-menu-category-title';
+        title.textContent = titleText;
+        category.appendChild(title);
+      }
+
+      const subLinks = categoryItem.querySelector(':scope > ul');
+      if (subLinks) {
+        const linksContainer = document.createElement('ul');
+        linksContainer.className = 'mega-menu-links';
+        subLinks.querySelectorAll(':scope > li').forEach((linkItem) => {
+          const li = document.createElement('li');
+          const link = linkItem.querySelector('a');
+          if (link) li.appendChild(link.cloneNode(true));
+          linksContainer.appendChild(li);
+        });
+        category.appendChild(linksContainer);
+      }
+
+      categoriesGrid.appendChild(category);
+    });
+
+    megaMenu.appendChild(categoriesGrid);
+    subList.replaceWith(megaMenu);
+    navItem.classList.add('has-mega-menu');
+  } else if (isProducts) {
+    // Build Products mega-menu from data (for CDN-served simplified nav)
+    const megaMenu = document.createElement('div');
+    megaMenu.className = 'mega-menu';
+    const categoriesGrid = document.createElement('div');
+    categoriesGrid.className = 'mega-menu-categories';
+
+    productsMegaMenuData.forEach((categoryData) => {
+      const category = document.createElement('div');
+      category.className = 'mega-menu-category';
+
+      // Icon
+      const iconWrapper = document.createElement('span');
+      iconWrapper.className = 'mega-menu-icon';
+      const iconImg = document.createElement('img');
+      iconImg.src = categoryData.icon;
+      iconImg.alt = categoryData.title;
+      iconImg.loading = 'lazy';
+      iconWrapper.appendChild(iconImg);
+      category.appendChild(iconWrapper);
+
+      // Title
+      const title = document.createElement('span');
+      title.className = 'mega-menu-category-title';
+      title.textContent = categoryData.title;
+      category.appendChild(title);
+
+      // Links
+      const linksContainer = document.createElement('ul');
+      linksContainer.className = 'mega-menu-links';
+      categoryData.links.forEach((linkData) => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = linkData.url;
+        link.textContent = linkData.text;
+        li.appendChild(link);
+        linksContainer.appendChild(li);
+      });
+      category.appendChild(linksContainer);
+
+      categoriesGrid.appendChild(category);
+    });
+
+    megaMenu.appendChild(categoriesGrid);
+    subList.replaceWith(megaMenu);
+    navItem.classList.add('has-mega-menu');
+  }
+}
+
+/**
  * Creates the search box
  * @returns {Element} The search element
  */
@@ -230,7 +404,11 @@ export default async function decorate(block) {
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      if (navSection.querySelector('ul')) {
+        navSection.classList.add('nav-drop');
+        // Build mega-menu if this section has nested categories with icons
+        buildMegaMenu(navSection);
+      }
       navSection.addEventListener('click', () => {
         const expanded = navSection.getAttribute('aria-expanded') === 'true';
         toggleAllNavSections(navSections);

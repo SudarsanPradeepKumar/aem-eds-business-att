@@ -440,3 +440,142 @@ header .nav-search-form button svg {
     padding: 8px 12px;
   }
 }
+
+/* =====================================================
+   MEGA-MENU STYLES - AT&T Business Design
+   ===================================================== */
+
+/* Mega-menu container */
+header .mega-menu {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(var(--nav-height) + 36px);
+  width: 100vw;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--color-gray-light);
+  z-index: 99;
+  padding: 32px 0;
+}
+
+/* Show mega-menu when parent is expanded */
+header nav .nav-sections .default-content-wrapper > ul > li.has-mega-menu[aria-expanded='true'] .mega-menu {
+  display: block;
+}
+
+/* Mega-menu categories grid */
+header .mega-menu-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 48px;
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Individual category */
+header .mega-menu-category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Category header with icon and title */
+header .mega-menu-category > .mega-menu-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+header .mega-menu-category > .mega-menu-icon img,
+header .mega-menu-category > .mega-menu-icon picture img {
+  width: 24px;
+  height: 24px;
+  filter: invert(45%) sepia(98%) saturate(1500%) hue-rotate(175deg) brightness(95%) contrast(101%);
+}
+
+header .mega-menu-category-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}
+
+/* Inline icon with title */
+header .mega-menu-category {
+  position: relative;
+}
+
+header .mega-menu-category .mega-menu-icon + .mega-menu-category-title {
+  display: inline;
+}
+
+header .mega-menu-category > :first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Category links list */
+header .mega-menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+header .mega-menu-links li {
+  padding: 0;
+  border: none;
+}
+
+header .mega-menu-links a {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: block;
+  padding: 4px 0;
+}
+
+header .mega-menu-links a:hover {
+  color: var(--color-primary);
+}
+
+/* Mobile mega-menu styles */
+@media (width < 900px) {
+  header .mega-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border-top: none;
+    padding: 16px 0;
+    background-color: var(--color-gray-lighter, #f5f5f5);
+  }
+
+  header .mega-menu-categories {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  header .mega-menu-category {
+    padding: 12px 16px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+  }
+}
+
+/* Hide original dropdown for items with mega-menu */
+header nav .nav-sections .default-content-wrapper > ul > li.has-mega-menu > ul {
+  display: none !important;
+}

@@ -489,17 +489,20 @@ header .mega-menu-category-header {
   gap: 8px;
 }
 
-header .mega-menu-category > .mega-menu-icon {
+/* Mega-menu icon styling - AT&T cyan color (#009FDB) */
+header .mega-menu-icon {
   display: inline-flex;
   align-items: center;
-  color: var(--color-primary);
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-header .mega-menu-category > .mega-menu-icon img,
-header .mega-menu-category > .mega-menu-icon picture img {
+header .mega-menu-icon img,
+header .mega-menu-icon picture img {
   width: 24px;
   height: 24px;
-  filter: invert(45%) sepia(98%) saturate(1500%) hue-rotate(175deg) brightness(95%) contrast(101%);
+  /* Filter to convert black SVG to AT&T cyan (#009FDB) */
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(166deg) brightness(95%) contrast(101%);
 }
 
 header .mega-menu-category-title {

@@ -3,6 +3,7 @@
  * Horizontal quick links bar with icons
  */
 
+/* Base block styles (before JS decoration) */
 .icon-nav-wrapper {
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-gray-light);
@@ -11,9 +12,56 @@
 .icon-nav {
   max-width: 1264px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+/* Style the raw block structure (fallback if JS doesn't run) */
+.icon-nav > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 100px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.icon-nav > div:hover {
+  background-color: var(--color-gray-lighter, #f5f5f5);
+  border-bottom-color: var(--color-primary);
+}
+
+.icon-nav > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-nav img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.icon-nav a {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.icon-nav > div:hover a {
+  color: var(--color-primary);
+}
+
+/* JS-decorated styles */
 .icon-nav-container {
   display: flex;
   justify-content: center;
@@ -72,17 +120,26 @@
 
 /* Mobile styles */
 @media (max-width: 768px) {
+  .icon-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .icon-nav > div,
   .icon-nav-item {
     padding: 12px 16px;
     min-width: 80px;
   }
 
+  .icon-nav img,
   .icon-nav-icon {
     width: 32px;
     height: 32px;
-    margin-bottom: 6px;
   }
 
+  .icon-nav a,
   .icon-nav-label {
     font-size: 11px;
   }
@@ -90,21 +147,19 @@
 
 /* Tablet and up */
 @media (min-width: 769px) {
-  .icon-nav-container {
-    justify-content: center;
-    gap: 8px;
-  }
-
+  .icon-nav > div,
   .icon-nav-item {
     padding: 20px 32px;
     min-width: 110px;
   }
 
+  .icon-nav img,
   .icon-nav-icon {
     width: 48px;
     height: 48px;
   }
 
+  .icon-nav a,
   .icon-nav-label {
     font-size: 14px;
   }

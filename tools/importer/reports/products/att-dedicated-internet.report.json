@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/products/att-dedicated-internet.html",
+  "path": "products/att-dedicated-internet",
+  "timestamp": "2026-01-09T08:32:17.269Z",
+  "title": "AT&T Dedicated Internet Access for Business – AT&T Business",
+  "template": "product-dynamic-defense",
+  "blocks": [
+    "hero-dark",
+    "hero-dark",
+    "cards",
+    "cards",
+    "cards",
+    "cards"
+  ]
+}

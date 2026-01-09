@@ -541,6 +541,13 @@ hr {
   margin: var(--spacing-l) 0;
 }
 
+/* ===== Metadata Block (hidden) ===== */
+/* The metadata block contains SEO data and should not be visible */
+.metadata-wrapper,
+.metadata {
+  display: none !important;
+}
+
 /* ===== Utility Classes ===== */
 .text-center {
   text-align: center;

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/products/sd-wan.html",
+  "path": "products/sd-wan",
+  "timestamp": "2026-01-09T08:32:24.047Z",
+  "title": "SD-WAN Service Provider - Software Defined Wide Area Network at AT&T Business.",
+  "template": "product-dynamic-defense",
+  "blocks": [
+    "hero-dark",
+    "cards",
+    "cards",
+    "cards",
+    "cards"
+  ]
+}

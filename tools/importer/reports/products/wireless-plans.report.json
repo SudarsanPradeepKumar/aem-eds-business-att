@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/products/wireless-plans.html",
+  "path": "products/wireless-plans",
+  "timestamp": "2026-01-09T08:33:06.243Z",
+  "title": "Business Cell Phone Plans | AT&T Business Wireless & Mobile",
+  "template": "product-dynamic-defense",
+  "blocks": [
+    "hero-dark",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards"
+  ]
+}

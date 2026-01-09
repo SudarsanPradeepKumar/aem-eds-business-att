@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/products/wireless-internet.html",
+  "path": "products/wireless-internet",
+  "timestamp": "2026-01-09T08:32:08.438Z",
+  "title": "Business Fixed Wireless Internet | AT&T Internet Air for Business",
+  "template": "product-dynamic-defense",
+  "blocks": [
+    "hero-dark",
+    "hero-dark",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards"
+  ]
+}

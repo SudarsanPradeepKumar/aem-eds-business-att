@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/products/att-phone-for-business.html",
+  "path": "products/att-phone-for-business",
+  "timestamp": "2026-01-09T08:32:32.429Z",
+  "title": "Business Phone Services & Solutions | AT&T Phone for Business",
+  "template": "product-dynamic-defense",
+  "blocks": [
+    "hero-dark"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/products/firstnet.html",
+  "path": "products/firstnet",
+  "timestamp": "2026-01-09T08:33:12.259Z",
+  "title": "Page not found - AT&T Business",
+  "template": "product-dynamic-defense",
+  "blocks": [
+    "hero-dark",
+    "cards",
+    "cards"
+  ]
+}

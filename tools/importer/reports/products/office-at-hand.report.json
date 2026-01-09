@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/products/office-at-hand.html",
+  "path": "products/office-at-hand",
+  "timestamp": "2026-01-09T08:32:40.793Z",
+  "title": "Office at Hand | Collaboration Tools and Services at AT&T Business",
+  "template": "product-dynamic-defense",
+  "blocks": [
+    "hero-dark",
+    "cards",
+    "cards"
+  ]
+}

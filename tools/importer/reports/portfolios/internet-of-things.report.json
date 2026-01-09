@@ -1,0 +1,31 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/portfolios/internet-of-things.html",
+  "path": "portfolios/internet-of-things",
+  "timestamp": "2026-01-09T07:42:01.542Z",
+  "title": "IoT Solutions and Platform as a Service at AT&T Business",
+  "template": "portfolio",
+  "blocks": [
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "columns-four",
+    "columns-four",
+    "columns-four"
+  ]
+}

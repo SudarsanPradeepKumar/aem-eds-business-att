@@ -1,0 +1,27 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/portfolios/networking.html",
+  "path": "portfolios/networking",
+  "timestamp": "2026-01-09T07:41:47.575Z",
+  "title": "Business Networking Services & Solutions | AT&T Business",
+  "template": "portfolio",
+  "blocks": [
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "columns-four",
+    "columns-four",
+    "columns-four"
+  ]
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="#f3f4f6">
+  <rect width="400" height="300" fill="#f3f4f6"/>
+  <rect x="10" y="10" width="380" height="280" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="200" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#9ca3af">SD-WAN Infographic</text>
+  <path d="M170 180l20-30 20 20 30-40 30 50z" fill="#e5e7eb"/>
+  <circle cx="160" cy="120" r="15" fill="#e5e7eb"/>
+</svg>

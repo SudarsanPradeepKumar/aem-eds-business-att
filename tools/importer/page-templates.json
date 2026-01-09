@@ -1,0 +1,98 @@
+{
+  "templates": [
+    {
+      "name": "portfolio",
+      "urls": [
+        "https://www.business.att.com/portfolios/mobility.html"
+      ],
+      "description": "AT&T Business portfolio pages with hero, cards, and columns blocks for product/service categories",
+      "blocks": [
+        {
+          "name": "hero-dark",
+          "instances": [
+            ".base-hero-v2",
+            ".hero-wrapper",
+            "[class*='hero']"
+          ],
+          "section": "dark"
+        },
+        {
+          "name": "cards",
+          "instances": [
+            ".flex-cards",
+            ".flex-card-main",
+            ".multi-tile-cards",
+            ".multi-tile-main"
+          ]
+        },
+        {
+          "name": "cards-services",
+          "instances": [
+            ".pictogram-cards",
+            ".pictogram-card-main",
+            "[class*='pictogram']"
+          ],
+          "section": "light-gray"
+        },
+        {
+          "name": "columns",
+          "instances": [
+            ".story-tile",
+            ".story-tile-main",
+            "[class*='story-tile']"
+          ]
+        },
+        {
+          "name": "columns-four",
+          "instances": [
+            ".link-farm",
+            ".link-columns",
+            "[class*='link-farm']"
+          ],
+          "section": "light-gray"
+        }
+      ]
+    },
+    {
+      "name": "product-dynamic-defense",
+      "urls": [
+        "https://www.business.att.com/products/att-dynamic-defense.html",
+        "https://www.business.att.com/products/business-fiber-internet.html",
+        "https://www.business.att.com/products/wireless-internet.html",
+        "https://www.business.att.com/products/att-dedicated-internet.html",
+        "https://www.business.att.com/products/sd-wan.html",
+        "https://www.business.att.com/products/att-phone-for-business.html",
+        "https://www.business.att.com/products/office-at-hand.html",
+        "https://www.business.att.com/products/sip-trunking.html",
+        "https://www.business.att.com/products/ip-toll-free.html",
+        "https://www.business.att.com/products/wireless-plans.html",
+        "https://www.business.att.com/products/firstnet.html"
+      ],
+      "description": "AT&T Dynamic Defense product page template with hero, feature cards, pricing cards, testimonials, and FAQ sections",
+      "blocks": [
+        {
+          "name": "hero-dark",
+          "instances": [
+            ".hero.aem-GridColumn .hero-wrapper",
+            ".hero-wrapper"
+          ],
+          "section": "dark"
+        },
+        {
+          "name": "cards",
+          "instances": [
+            ".multi-tile-main",
+            ".multi-tile-cards"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            ".story-tile-main",
+            ".image-text-container"
+          ]
+        }
+      ]
+    }
+  ]
+}

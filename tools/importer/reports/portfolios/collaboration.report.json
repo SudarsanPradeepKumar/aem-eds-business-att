@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/portfolios/collaboration.html",
+  "path": "portfolios/collaboration",
+  "timestamp": "2026-01-09T07:41:54.217Z",
+  "title": "VOIP, Voice, Video & Chat Solutions at AT&T Business.",
+  "template": "portfolio",
+  "blocks": [
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "hero-dark",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards"
+  ]
+}

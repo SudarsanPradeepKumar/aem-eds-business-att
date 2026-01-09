@@ -1,0 +1,209 @@
+/*
+ * Hero Dark Block - AT&T Business Design
+ * Dark hero with background image for portfolio pages
+ */
+
+/* Container reset for full-width hero */
+.hero-dark-container {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-dark-container > div {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Main hero-dark block */
+.hero-dark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+  padding: 48px 24px;
+  background-color: var(--color-dark-gray);
+  overflow: hidden;
+}
+
+/* Background image */
+.hero-dark picture {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  box-sizing: border-box;
+}
+
+.hero-dark picture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(37, 48, 58, 0.95) 0%, rgba(37, 48, 58, 0.7) 50%, rgba(37, 48, 58, 0.3) 100%);
+}
+
+.hero-dark img {
+  object-fit: cover;
+  object-position: right center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero content container */
+.hero-dark-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.hero-dark-content > div {
+  max-width: 600px;
+}
+
+/* Eyebrow text */
+.hero-dark-content > div > div:first-child {
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  color: var(--color-white);
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+/* Hero title */
+.hero-dark h1,
+.hero-dark h2 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing-xxl);
+  color: var(--color-white);
+  margin: 0 0 16px;
+}
+
+/* Hero description */
+.hero-dark p {
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+  color: var(--color-white);
+  margin: 0 0 24px;
+  opacity: 0.9;
+}
+
+/* Hero bullet list */
+.hero-dark ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.hero-dark li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--color-white);
+  font-size: var(--body-font-size-m);
+  margin-bottom: 8px;
+}
+
+.hero-dark li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+}
+
+/* Hero buttons */
+.hero-dark .button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.hero-dark a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--button-height);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  transition: var(--button-transition);
+  background-color: var(--color-light-blue);
+  color: var(--color-primary);
+  border: 2px solid transparent;
+}
+
+.hero-dark a.button:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.hero-dark a.button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.hero-dark a.button.secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+/* Responsive - Tablet */
+@media (width >= 768px) {
+  .hero-dark {
+    min-height: 450px;
+    padding: 64px 32px;
+  }
+
+  .hero-dark h1,
+  .hero-dark h2 {
+    font-size: 42px;
+    letter-spacing: -1.26px;
+  }
+
+  .hero-dark-content {
+    padding: 0 32px;
+  }
+}
+
+/* Responsive - Desktop */
+@media (width >= 900px) {
+  .hero-dark {
+    min-height: 500px;
+    padding: 80px 32px;
+  }
+
+  .hero-dark h1,
+  .hero-dark h2 {
+    font-size: var(--heading-font-size-xxl);
+    letter-spacing: var(--heading-letter-spacing-xxl);
+  }
+
+  .hero-dark p {
+    font-size: 18px;
+  }
+}
+
+/* Responsive - Large desktop */
+@media (width >= 1200px) {
+  .hero-dark {
+    min-height: 550px;
+  }
+
+  .hero-dark h1,
+  .hero-dark h2 {
+    font-size: 48px;
+    letter-spacing: -1.44px;
+  }
+
+  .hero-dark-content > div {
+    max-width: 550px;
+  }
+}

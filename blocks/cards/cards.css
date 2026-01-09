@@ -3,6 +3,13 @@
  * Feature cards with rounded corners and hover effects
  */
 
+/* Container styling */
+.cards-container > div {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;

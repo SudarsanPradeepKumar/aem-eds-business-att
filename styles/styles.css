@@ -479,6 +479,38 @@ main .section.light-blue {
   padding: var(--section-padding) 0;
 }
 
+/* Cyan/Accent Section (for pictogram cards) */
+main .section.cyan,
+main .section.accent {
+  background-color: var(--color-accent);
+  margin: 0;
+  padding: var(--section-padding) 0;
+}
+
+main .section.cyan h1,
+main .section.cyan h2,
+main .section.cyan h3,
+main .section.cyan h4,
+main .section.cyan h5,
+main .section.cyan h6,
+main .section.cyan p,
+main .section.cyan li {
+  color: var(--color-white);
+}
+
+main .section.cyan a:any-link {
+  color: var(--color-white);
+}
+
+main .section.cyan a.button {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+main .section.cyan a.button:hover {
+  background-color: var(--color-light-blue);
+}
+
 /* ===== Lists ===== */
 ul,
 ol {

@@ -195,6 +195,10 @@
 .hero.left h2 {
   text-align: left;
   max-width: 600px;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: -1.44px;
 }
 
 .hero.left p {
@@ -204,14 +208,20 @@
   max-width: 600px;
 }
 
-/* Badge/eyebrow text */
-.hero.left .hero-badge {
-  font-size: 16px;
-  font-style: italic;
+/* Badge/eyebrow text - matches AT&T style */
+.hero.left .hero-badge,
+.hero.left .hero-badge p {
+  font-size: 28px;
+  font-style: normal;
   font-weight: 400;
   color: var(--color-white);
-  margin-bottom: 12px;
-  opacity: 0.95;
+  margin-bottom: 8px;
+  line-height: 30px;
+}
+
+.hero.left .hero-badge em,
+.hero.left .hero-badge p em {
+  font-style: normal;
 }
 
 /* Disclaimer text */
@@ -225,30 +235,44 @@
 /* Button container left aligned */
 .hero.left .button-container {
   justify-content: flex-start;
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
 }
 
-/* Secondary button (outline style) */
+/* First button (secondary class) - Light blue bg with dark blue text - AT&T Primary style */
 .hero.left a.button.secondary {
-  background-color: transparent;
-  border: 2px solid var(--color-white);
-  color: var(--color-white);
+  background-color: #f2fafd;
+  border: none;
+  border-radius: 28px;
+  color: #00388f;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 400;
+  min-height: auto;
 }
 
 .hero.left a.button.secondary:hover {
-  background-color: var(--color-white);
-  color: var(--color-dark);
+  background-color: #e0f4fb;
+  color: #00388f;
 }
 
-/* Primary button in left hero (dark solid) */
+/* Second button (primary class) - Outline white - AT&T Secondary style */
 .hero.left a.button.primary {
-  background-color: var(--color-dark);
-  border: 2px solid var(--color-dark);
-  color: var(--color-white);
+  background-color: transparent;
+  border: 2px solid #f2fafd;
+  border-radius: 28px;
+  color: #f2fafd;
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 400;
+  min-height: auto;
 }
 
 .hero.left a.button.primary:hover {
-  background-color: #333;
-  border-color: #333;
+  background-color: rgba(242, 250, 253, 0.1);
+  border-color: #fff;
+  color: #fff;
 }
 
 @media (width >= 768px) {
@@ -256,19 +280,10 @@
     min-height: 480px;
     padding: 80px 32px;
   }
-
-  .hero.left h2 {
-    font-size: 40px;
-    line-height: 1.15;
-  }
 }
 
 @media (width >= 1200px) {
   .hero.left {
     min-height: 520px;
-  }
-
-  .hero.left h2 {
-    font-size: 44px;
   }
 }

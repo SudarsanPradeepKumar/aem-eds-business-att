@@ -289,8 +289,28 @@
   margin-top: 16px;
 }
 
-/* Promo card CTA button - white filled with dark text for first card */
-.cards.promo .cards-card-body a:not([href="#"]) {
+/* Default link styling in promo cards - inline text links */
+.cards.promo .cards-card-body a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  font-size: inherit;
+  font-weight: 400;
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline;
+}
+
+.cards.promo .cards-card-body a::after {
+  display: none;
+}
+
+.cards.promo .cards-card-body a:hover {
+  color: var(--color-white);
+}
+
+/* Promo card CTA button - only links in last paragraph */
+.cards.promo .cards-card-body p:last-child a {
   display: inline-block;
   background-color: var(--color-white);
   color: var(--color-dark, #191919);
@@ -305,36 +325,21 @@
   width: fit-content;
 }
 
-.cards.promo .cards-card-body a:not([href="#"]):hover {
+.cards.promo .cards-card-body p:last-child a:hover {
   background-color: transparent;
   color: var(--color-white);
 }
 
-.cards.promo .cards-card-body a:not([href="#"])::after {
-  display: none;
-}
-
 /* Second card - solid blue button */
-.cards.promo > ul > li:nth-child(2) .cards-card-body a:not([href="#"]) {
+.cards.promo > ul > li:nth-child(2) .cards-card-body p:last-child a {
   background-color: var(--color-primary, #009FDB);
   color: var(--color-white);
   border-color: var(--color-primary, #009FDB);
 }
 
-.cards.promo > ul > li:nth-child(2) .cards-card-body a:not([href="#"]):hover {
+.cards.promo > ul > li:nth-child(2) .cards-card-body p:last-child a:hover {
   background-color: #007AAD;
   border-color: #007AAD;
-}
-
-/* Promo card link styling */
-.cards.promo .cards-card-body a[href="#"] {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: underline;
-  font-size: 12px;
-}
-
-.cards.promo .cards-card-body a[href="#"]::after {
-  display: none;
 }
 
 /* Mobile promo cards */

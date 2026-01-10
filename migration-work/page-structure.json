@@ -1,0 +1,185 @@
+{
+  "url": "https://www.business.att.com/",
+  "analysisDate": "2026-01-09",
+  "sections": [
+    {
+      "sectionNumber": 1,
+      "name": "Quick Links Bar",
+      "background": "light-gray",
+      "styling": "horizontal scrollable links bar",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Horizontal row of 6 category links with icons (Phones & devices, Phone plans, Internet, Voice, Bundles, Deals)"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 2,
+      "name": "Hero Deals Section",
+      "background": "light",
+      "styling": "full-width with centered content",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Large centered heading 'Great deals and the latest tech for your business'"
+        },
+        {
+          "sequence": 2,
+          "description": "Grid of 3 promotional cards - each with label tag, heading, description, fine print, and CTA button (iPhone 17 Pro offer, Wireless plans offer, Business internet offer)"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 3,
+      "name": "Dynamic Defense Section",
+      "background": "dark with background image",
+      "styling": "two-column layout, image right, content left",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Eyebrow text 'AT&T Dynamic Defense', large heading, paragraph description, disclaimer text, two CTA buttons"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 4,
+      "name": "J.D. Power Award Section",
+      "background": "light-gray",
+      "styling": "centered content with carousel dots",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Award recognition text about J.D. Power 8-year customer satisfaction award with fine print"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 5,
+      "name": "Why Work with AT&T Business",
+      "background": "light",
+      "styling": "heading centered, 4-column grid below",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Centered heading 'Why work with AT&T Business?' with subheading"
+        },
+        {
+          "sequence": 2,
+          "description": "Grid of 4 feature items - each with heading, description paragraph, and 'Learn more' link (AT&T Guarantee, Reliability of fiber and 5G, Security that starts at the network, Experts who know business)"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 6,
+      "name": "Products and Services Section",
+      "background": "light-gray",
+      "styling": "eyebrow + heading centered, horizontal scrollable cards",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Eyebrow 'Tools for success', heading 'Explore AT&T Business products and services', subheading paragraph"
+        },
+        {
+          "sequence": 2,
+          "description": "Horizontal carousel of 5+ product category cards - each with icon, heading, description, Learn more link (Wireless, Internet, Voice and collaboration, Cybersecurity, Network services)"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 7,
+      "name": "Solutions for Business Section",
+      "background": "light",
+      "styling": "heading area left, carousel cards right",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Eyebrow 'Solutions for every kind of business', paragraph description"
+        },
+        {
+          "sequence": 2,
+          "description": "Horizontal carousel of 4 solution cards with images - each with icon/image, heading, description (Small business, FirstNet, Public sector, Industry solutions)"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 8,
+      "name": "AT&T Guarantee Section",
+      "background": "light with background image",
+      "styling": "two-column layout, content left, image right",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Large heading 'Get backed by the AT&T Guarantee', paragraph, checklist of 3 benefits with checkmarks, two CTA buttons (Shop deals, Learn more)"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 9,
+      "name": "Success Stories Section",
+      "background": "dark with background image",
+      "styling": "centered content overlay on image",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Heading 'Success stories from our customers', Read more link"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 10,
+      "name": "Contact Sales Section",
+      "background": "light",
+      "styling": "two-column layout, text left, form right",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Heading 'Talk to an AT&T Business sales expert', paragraph with phone number link, hours text"
+        },
+        {
+          "sequence": 2,
+          "description": "Contact form with fields: First name, Last name, Email, Phone, Company name, Comment, checkbox for marketing opt-in, Submit button"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 11,
+      "name": "Looking for More Section",
+      "background": "light-gray",
+      "styling": "heading centered, 4-column link grid",
+      "contentSequences": [
+        {
+          "sequence": 1,
+          "description": "Heading 'Looking for more?'"
+        },
+        {
+          "sequence": 2,
+          "description": "Grid of 4 columns of links - approximately 8 links per column covering various product and service categories"
+        }
+      ]
+    }
+  ],
+  "blockInventory": {
+    "localBlocks": [
+      {"name": "hero", "purpose": "Large heading, text, and buttons for page introductions"},
+      {"name": "cards", "purpose": "Grid of items with images, headings, and descriptions"},
+      {"name": "columns", "purpose": "Side-by-side content in multiple columns"},
+      {"name": "fragment", "purpose": "Reusable content sections"},
+      {"name": "header", "purpose": "Site navigation header (auto-populated)"},
+      {"name": "footer", "purpose": "Site footer with links (auto-populated)"}
+    ],
+    "blockCollectionAvailable": [
+      {"name": "accordion", "purpose": "Expandable Q&A sections"},
+      {"name": "tabs", "purpose": "Tabbed interface for organizing related content"},
+      {"name": "carousel", "purpose": "Rotating slideshow of images or content"},
+      {"name": "quote", "purpose": "Highlighted testimonial or pullquote"},
+      {"name": "form", "purpose": "Contact or data collection forms"}
+    ]
+  },
+  "excludedFromMigration": [
+    "Header/Navigation (handled by nav.md)",
+    "Footer (handled by footer.md)",
+    "Cookie consent banner",
+    "Chat widget"
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "url": "https://www.business.att.com/",
+  "analysisDate": "2026-01-09",
+  "sections": [
+    {
+      "sectionNumber": 1,
+      "name": "Quick Links Bar",
+      "background": "light-gray",
+      "sectionMetadata": true,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Horizontal row of 6 category links with icons",
+          "decision": "cards",
+          "reason": "Repeating structured pattern (6 items with icons and text) requires block structure",
+          "variant": "horizontal navigation style"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 2,
+      "name": "Hero Deals Section",
+      "background": "light",
+      "sectionMetadata": false,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Large centered heading 'Great deals and the latest tech for your business'",
+          "decision": "DEFAULT CONTENT",
+          "reason": "Author can type heading normally - prominent styling is CSS concern"
+        },
+        {
+          "sequence": 2,
+          "description": "Grid of 3 promotional cards with label tags, headings, descriptions, fine print, and CTAs",
+          "decision": "cards",
+          "reason": "Repeating structured pattern with 3 promotional items requires cards block",
+          "variant": "promo cards with tags and pricing"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 3,
+      "name": "Dynamic Defense Section",
+      "background": "dark with background image",
+      "sectionMetadata": false,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Eyebrow text, large heading, paragraph, disclaimer, two CTA buttons with background image",
+          "decision": "hero",
+          "reason": "Full-width promotional section with background image - hero block with dark variant",
+          "variant": "dark with background image"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 4,
+      "name": "J.D. Power Award Section",
+      "background": "light-gray",
+      "sectionMetadata": true,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Award recognition text with fine print",
+          "decision": "DEFAULT CONTENT",
+          "reason": "Simple text content - author can type paragraphs normally"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 5,
+      "name": "Why Work with AT&T Business",
+      "background": "light",
+      "sectionMetadata": false,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Centered heading and subheading",
+          "decision": "DEFAULT CONTENT",
+          "reason": "Author types heading and paragraph normally"
+        },
+        {
+          "sequence": 2,
+          "description": "Grid of 4 feature items with headings, descriptions, and Learn more links",
+          "decision": "columns",
+          "reason": "4 feature items in grid layout - columns block with 4 columns",
+          "variant": "4-column feature grid"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 6,
+      "name": "Products and Services Section",
+      "background": "light-gray",
+      "sectionMetadata": true,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Eyebrow, heading, subheading paragraph",
+          "decision": "DEFAULT CONTENT",
+          "reason": "Author types text content normally"
+        },
+        {
+          "sequence": 2,
+          "description": "Carousel of 5+ product category cards with icons, headings, descriptions, links",
+          "decision": "cards",
+          "reason": "Repeating structured pattern of product cards",
+          "variant": "product category cards with icons"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 7,
+      "name": "Solutions for Business Section",
+      "background": "light",
+      "sectionMetadata": false,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Eyebrow text and paragraph",
+          "decision": "DEFAULT CONTENT",
+          "reason": "Simple text - author types normally"
+        },
+        {
+          "sequence": 2,
+          "description": "Carousel of 4 solution cards with images, headings, descriptions",
+          "decision": "cards",
+          "reason": "Repeating structured pattern of solution cards",
+          "variant": "solution cards with images"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 8,
+      "name": "AT&T Guarantee Section",
+      "background": "light with background image",
+      "sectionMetadata": false,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Large heading, paragraph, checklist of 3 benefits, two CTA buttons with background image",
+          "decision": "columns",
+          "reason": "Two-column layout with content and image - columns block",
+          "variant": "content-image split with background"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 9,
+      "name": "Success Stories Section",
+      "background": "dark with background image",
+      "sectionMetadata": false,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Heading and Read more link with dark background image",
+          "decision": "hero",
+          "reason": "Full-width section with background image - hero block dark variant",
+          "variant": "dark teaser with background image"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 10,
+      "name": "Contact Sales Section",
+      "background": "light",
+      "sectionMetadata": false,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Heading, paragraph with phone number, hours text",
+          "decision": "DEFAULT CONTENT",
+          "reason": "Author types heading and paragraphs normally"
+        },
+        {
+          "sequence": 2,
+          "description": "Contact form with multiple input fields and submit button",
+          "decision": "columns",
+          "reason": "Two-column layout - text left, form placeholder right. Form functionality requires custom implementation.",
+          "variant": "content-form layout",
+          "note": "Form fields need custom form block or external form service integration"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 11,
+      "name": "Looking for More Section",
+      "background": "light-gray",
+      "sectionMetadata": true,
+      "sequences": [
+        {
+          "sequence": 1,
+          "description": "Heading 'Looking for more?'",
+          "decision": "DEFAULT CONTENT",
+          "reason": "Simple heading - author types normally"
+        },
+        {
+          "sequence": 2,
+          "description": "Grid of 4 columns of links (approximately 8 links per column)",
+          "decision": "columns",
+          "reason": "4-column layout of link lists",
+          "variant": "4-column link grid"
+        }
+      ]
+    }
+  ],
+  "blockSummary": {
+    "hero": ["Section 3 - Dynamic Defense", "Section 9 - Success Stories"],
+    "cards": ["Section 1 - Quick Links", "Section 2 - Promo Cards", "Section 6 - Product Cards", "Section 7 - Solution Cards"],
+    "columns": ["Section 5 - Features", "Section 8 - Guarantee", "Section 10 - Contact", "Section 11 - Links"],
+    "defaultContent": ["Section 2 heading", "Section 4 - Award", "Section 5 heading", "Section 6 heading", "Section 7 text", "Section 10 text", "Section 11 heading"]
+  },
+  "singleBlockSectionValidation": {
+    "section3": {
+      "block": "hero",
+      "background": "dark with background image",
+      "layout": "edge-to-edge with background image",
+      "decision": "SKIP section-metadata",
+      "reason": "Background is hero's intrinsic design, not section container styling"
+    },
+    "section9": {
+      "block": "hero",
+      "background": "dark with background image",
+      "layout": "edge-to-edge with background image",
+      "decision": "SKIP section-metadata",
+      "reason": "Background is hero's intrinsic design, not section container styling"
+    },
+    "section8": {
+      "block": "columns",
+      "background": "light with background image",
+      "layout": "content area with background image",
+      "decision": "SKIP section-metadata",
+      "reason": "Background image is part of the columns design"
+    }
+  },
+  "variantMapping": {
+    "hero": "hero (dark)",
+    "cards": "cards (promo)",
+    "columns": "columns (four)"
+  },
+  "blockVariantNotes": {
+    "hero (dark)": "Used for sections 3 and 9 - dark background with images",
+    "cards": "Used for sections 1, 2, 6, 7 - various card layouts",
+    "cards (promo)": "Promotional cards with pricing tags",
+    "columns": "Used for sections 5, 8, 10, 11 - multi-column layouts",
+    "columns (four)": "4-column grid layout for features and links"
+  }
+}

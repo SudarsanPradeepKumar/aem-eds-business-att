@@ -1,0 +1,180 @@
+{
+  "url": "https://www.business.att.com/products/att-dynamic-defense.html",
+  "sections": [
+    {
+      "number": 1,
+      "style": "dark",
+      "description": "Hero section with dark background and image",
+      "sequences": [
+        {
+          "id": "1.1",
+          "description": "Large heading 'Enhance your security posture', subheading, paragraph text describing the product, and two call-to-action buttons"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "style": "cyan",
+      "description": "Feature highlights section with cyan/accent background",
+      "sequences": [
+        {
+          "id": "2.1",
+          "description": "Eyebrow text and heading 'Cybersecurity that's built into your connectivity'"
+        },
+        {
+          "id": "2.2",
+          "description": "Three feature items in a row, each with an icon/pictogram and descriptive text"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "style": "light",
+      "description": "Product explanation section with white background",
+      "sequences": [
+        {
+          "id": "3.1",
+          "description": "Section heading 'Shaping the future of network defense'"
+        },
+        {
+          "id": "3.2",
+          "description": "Paragraph explaining the service with 'How it works' subheading"
+        },
+        {
+          "id": "3.3",
+          "description": "Diagram/image showing how the service works in the network"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "style": "light-gray",
+      "description": "Pricing/promotion cards section",
+      "sequences": [
+        {
+          "id": "4.1",
+          "description": "Heading 'Try AT&T Dynamic Defense Advanced or Premium—on us—for two months' with promotional text"
+        },
+        {
+          "id": "4.2",
+          "description": "Three pricing tier cards showing AT&T Dynamic Defense, AT&T Dynamic Defense Advanced, and AT&T Dynamic Defense Premium with features and pricing"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "style": "light",
+      "description": "Plan comparison table section",
+      "sequences": [
+        {
+          "id": "5.1",
+          "description": "Heading 'Choose the plan that's right for your business'"
+        },
+        {
+          "id": "5.2",
+          "description": "Comparison table showing features across different plan tiers with checkmarks"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "style": "dark",
+      "description": "Success story/testimonial section with dark background",
+      "sequences": [
+        {
+          "id": "6.1",
+          "description": "Two-column layout: Left side has large statistic '229 million threats blocked in 24 hours' with descriptive text and CTA button; Right side has image"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "style": "light-gray",
+      "description": "Security features section",
+      "sequences": [
+        {
+          "id": "7.1",
+          "description": "Heading 'Always-on security that scales with you'"
+        },
+        {
+          "id": "7.2",
+          "description": "Five feature cards in a grid, each with icon and text describing security capabilities"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "style": "light",
+      "description": "Industry recognition/awards section",
+      "sequences": [
+        {
+          "id": "8.1",
+          "description": "Heading 'We've got the industry talking'"
+        },
+        {
+          "id": "8.2",
+          "description": "Award cards showing Gartner, Frost & Sullivan, and other industry recognition"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "style": "light-gray",
+      "description": "Resources section",
+      "sequences": [
+        {
+          "id": "9.1",
+          "description": "Heading 'Learn more about AT&T Dynamic Defense'"
+        },
+        {
+          "id": "9.2",
+          "description": "Resource cards with images, titles, and links to additional content"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "style": "light-gray",
+      "description": "FAQ section",
+      "sequences": [
+        {
+          "id": "10.1",
+          "description": "Heading 'Frequently asked questions'"
+        },
+        {
+          "id": "10.2",
+          "description": "Expandable questions and answers in accordion format"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "style": "dark",
+      "description": "Contact/CTA section",
+      "sequences": [
+        {
+          "id": "11.1",
+          "description": "Heading 'Talk to an AT&T Business sales expert' with phone number and contact info, plus hours of operation"
+        }
+      ]
+    }
+  ],
+  "blockInventory": {
+    "local": [
+      {"name": "hero", "purpose": "Large page introduction with heading, text, buttons"},
+      {"name": "hero-dark", "purpose": "Dark hero with background image and gradient overlay"},
+      {"name": "cards", "purpose": "Grid of content items with images and text"},
+      {"name": "cards-promo", "purpose": "Promotional cards with dark styling"},
+      {"name": "columns", "purpose": "Side-by-side content layout"},
+      {"name": "columns-features", "purpose": "Feature columns with icons"},
+      {"name": "header", "purpose": "Site header/navigation"},
+      {"name": "footer", "purpose": "Site footer"},
+      {"name": "fragment", "purpose": "Reusable content sections"}
+    ],
+    "blockCollection": [
+      {"name": "accordion", "purpose": "Expandable Q&A sections for FAQs", "url": "https://main--aem-block-collection--adobe.aem.live/block-collection/accordion"},
+      {"name": "tabs", "purpose": "Switchable content panels", "url": "https://main--aem-block-collection--adobe.aem.live/block-collection/tabs"},
+      {"name": "table", "purpose": "Structured data in table format", "url": "https://main--aem-block-collection--adobe.aem.live/block-collection/table"}
+    ]
+  }
+}

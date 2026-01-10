@@ -1,0 +1,218 @@
+{
+  "url": "https://www.business.att.com/products/att-dynamic-defense.html",
+  "analysisDate": "2026-01-09",
+  "sections": [
+    {
+      "number": 1,
+      "style": "dark",
+      "sequences": [
+        {
+          "id": "1.1",
+          "description": "Hero with heading, subheading, description, and CTAs",
+          "decision": "block",
+          "blockName": "hero-dark",
+          "variantName": "Hero (dark)",
+          "rationale": "Dark hero with background image, matches hero-dark block pattern"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "style": "cyan",
+      "sequences": [
+        {
+          "id": "2.1",
+          "description": "Section heading",
+          "decision": "default-content",
+          "rationale": "Simple heading text, no special structure needed"
+        },
+        {
+          "id": "2.2",
+          "description": "Three feature items with icons",
+          "decision": "block",
+          "blockName": "cards",
+          "rationale": "Repeating pattern of icon + text items, fits cards block"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "style": "light",
+      "sequences": [
+        {
+          "id": "3.1",
+          "description": "Section heading",
+          "decision": "default-content",
+          "rationale": "Simple heading"
+        },
+        {
+          "id": "3.2",
+          "description": "Explanatory paragraph with subheading",
+          "decision": "default-content",
+          "rationale": "Standard text content"
+        },
+        {
+          "id": "3.3",
+          "description": "Diagram/image showing network flow",
+          "decision": "default-content",
+          "rationale": "Single image can be default content"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "style": "light-gray",
+      "sequences": [
+        {
+          "id": "4.1",
+          "description": "Promotional heading",
+          "decision": "default-content",
+          "rationale": "Simple heading text"
+        },
+        {
+          "id": "4.2",
+          "description": "Three pricing cards",
+          "decision": "block",
+          "blockName": "cards",
+          "rationale": "Grid of pricing cards with consistent structure"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "style": "light",
+      "sequences": [
+        {
+          "id": "5.1",
+          "description": "Section heading",
+          "decision": "default-content",
+          "rationale": "Simple heading"
+        },
+        {
+          "id": "5.2",
+          "description": "Feature comparison table",
+          "decision": "default-content",
+          "rationale": "Tables can be authored as default content in markdown"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "style": "dark",
+      "sequences": [
+        {
+          "id": "6.1",
+          "description": "Two-column layout with stats and image",
+          "decision": "block",
+          "blockName": "columns",
+          "rationale": "Side-by-side content layout with text/stats and image"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "style": "light-gray",
+      "sequences": [
+        {
+          "id": "7.1",
+          "description": "Section heading",
+          "decision": "default-content",
+          "rationale": "Simple heading"
+        },
+        {
+          "id": "7.2",
+          "description": "Five feature cards with icons",
+          "decision": "block",
+          "blockName": "cards",
+          "rationale": "Grid of feature items with icons and text"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "style": "light",
+      "sequences": [
+        {
+          "id": "8.1",
+          "description": "Section heading",
+          "decision": "default-content",
+          "rationale": "Simple heading"
+        },
+        {
+          "id": "8.2",
+          "description": "Award/recognition cards",
+          "decision": "block",
+          "blockName": "cards",
+          "rationale": "Grid of award items with images and text"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "style": "light-gray",
+      "sequences": [
+        {
+          "id": "9.1",
+          "description": "Section heading",
+          "decision": "default-content",
+          "rationale": "Simple heading"
+        },
+        {
+          "id": "9.2",
+          "description": "Resource cards",
+          "decision": "block",
+          "blockName": "cards",
+          "rationale": "Grid of resource items with images, titles, links"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "style": "light-gray",
+      "sequences": [
+        {
+          "id": "10.1",
+          "description": "FAQ heading",
+          "decision": "default-content",
+          "rationale": "Simple heading"
+        },
+        {
+          "id": "10.2",
+          "description": "Expandable FAQ items",
+          "decision": "default-content",
+          "rationale": "FAQ can be rendered as default content with bold questions and answers - simpler authoring experience than accordion block"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "style": "dark",
+      "sequences": [
+        {
+          "id": "11.1",
+          "description": "Contact CTA section",
+          "decision": "default-content",
+          "rationale": "Heading, phone number, and text can be default content with section styling"
+        }
+      ]
+    }
+  ],
+  "blockSummary": {
+    "hero-dark": ["1.1"],
+    "cards": ["2.2", "4.2", "7.2", "8.2", "9.2"],
+    "columns": ["6.1"]
+  },
+  "sectionMetadata": [
+    {"section": 1, "style": "dark"},
+    {"section": 2, "style": "cyan"},
+    {"section": 3, "style": "light"},
+    {"section": 4, "style": "light-gray"},
+    {"section": 5, "style": "light"},
+    {"section": 6, "style": "dark"},
+    {"section": 7, "style": "light-gray"},
+    {"section": 8, "style": "light"},
+    {"section": 9, "style": "light-gray"},
+    {"section": 10, "style": "light-gray"},
+    {"section": 11, "style": "dark"}
+  ]
+}

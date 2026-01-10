@@ -175,3 +175,100 @@
     letter-spacing: -1.44px;
   }
 }
+
+/* ===== Left-aligned Hero (Dynamic Defense style) ===== */
+.hero.left {
+  text-align: left;
+  justify-content: flex-start;
+  padding: 60px 24px;
+}
+
+.hero.left > div,
+.hero.left > .hero-content {
+  max-width: 1264px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero.left h1,
+.hero.left h2 {
+  text-align: left;
+  max-width: 600px;
+}
+
+.hero.left p {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 600px;
+}
+
+/* Badge/eyebrow text */
+.hero.left .hero-badge {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-white);
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+/* Disclaimer text */
+.hero.left .hero-disclaimer {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 16px;
+  max-width: 550px;
+}
+
+/* Button container left aligned */
+.hero.left .button-container {
+  justify-content: flex-start;
+}
+
+/* Secondary button (outline style) */
+.hero.left a.button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.hero.left a.button.secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+}
+
+/* Primary button in left hero (dark solid) */
+.hero.left a.button.primary {
+  background-color: var(--color-dark);
+  border: 2px solid var(--color-dark);
+  color: var(--color-white);
+}
+
+.hero.left a.button.primary:hover {
+  background-color: #333;
+  border-color: #333;
+}
+
+@media (width >= 768px) {
+  .hero.left {
+    min-height: 480px;
+    padding: 80px 32px;
+  }
+
+  .hero.left h2 {
+    font-size: 40px;
+    line-height: 1.15;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero.left {
+    min-height: 520px;
+  }
+
+  .hero.left h2 {
+    font-size: 44px;
+  }
+}

@@ -23,13 +23,52 @@ export default function decorate(block) {
     block.append(contentWrapper);
   }
 
+  // Handle badge/eyebrow text (em elements at the start)
+  block.querySelectorAll('.hero-content > div > div > em').forEach((em) => {
+    const wrapper = em.closest('div');
+    if (wrapper) {
+      wrapper.classList.add('hero-badge');
+    }
+  });
+
+  // Handle disclaimer text (small elements)
+  block.querySelectorAll('.hero-content small').forEach((small) => {
+    const wrapper = small.closest('div');
+    if (wrapper) {
+      wrapper.classList.add('hero-disclaimer');
+    }
+  });
+
   // Add button class to links that look like buttons (strong > a)
   block.querySelectorAll('strong > a').forEach((link) => {
     link.classList.add('button');
     link.closest('strong').replaceWith(link);
   });
 
-  // Also handle direct links that should be buttons (secondary)
+  // Handle button containers with multiple links
+  block.querySelectorAll('.hero-content > div > div').forEach((div) => {
+    const links = div.querySelectorAll('a');
+    if (links.length >= 1 && !div.classList.contains('hero-badge') && !div.classList.contains('hero-disclaimer')) {
+      const hasOnlyLinks = [...div.childNodes].every((node) =>
+        node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '' ||
+        node.tagName === 'A'
+      );
+      if (hasOnlyLinks && links.length > 0) {
+        div.classList.add('button-container');
+        links.forEach((link, index) => {
+          link.classList.add('button');
+          // First button is secondary (outline), second is primary (solid dark)
+          if (index === 0) {
+            link.classList.add('secondary');
+          } else {
+            link.classList.add('primary');
+          }
+        });
+      }
+    }
+  });
+
+  // Also handle direct links that should be buttons (secondary) - fallback
   block.querySelectorAll('p > a:only-child').forEach((link) => {
     if (!link.classList.contains('button')) {
       link.classList.add('button', 'secondary');

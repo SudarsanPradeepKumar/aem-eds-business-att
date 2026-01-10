@@ -283,6 +283,12 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Promo card CTA button container - remove extra margin */
+.cards.promo .cards-card-body p:last-child {
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+
 /* Promo card CTA button - white filled with dark text for first card */
 .cards.promo .cards-card-body a:not([href="#"]) {
   display: inline-block;
@@ -294,7 +300,7 @@
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
-  margin-top: 16px;
+  margin-top: 0;
   transition: all 0.2s ease;
   width: fit-content;
 }

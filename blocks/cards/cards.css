@@ -192,6 +192,12 @@
   border-radius: 16px;
   min-height: 380px;
   overflow: hidden;
+  background-color: #000; /* Dark fallback when image doesn't load */
+}
+
+/* Second card dark gray-blue background */
+.cards.promo > ul > li:nth-child(2) {
+  background-color: #1a2744;
 }
 
 /* First card (large - 2/3 width) */
@@ -237,30 +243,30 @@
   min-height: 340px;
 }
 
-/* Promo card badge */
+/* Promo card badge - white text like AT&T */
 .cards.promo .cards-card-body > p:first-child {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--color-accent, #00D1FF);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 8px;
 }
 
-/* Promo card title */
+/* Promo card title - first card larger, second smaller */
 .cards.promo .cards-card-body strong,
 .cards.promo .cards-card-body h3 {
   display: block;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--color-white);
-  line-height: 1.2;
+  line-height: 1.15;
   margin-bottom: 16px;
 }
 
 .cards.promo > ul > li:nth-child(2) .cards-card-body strong,
 .cards.promo > ul > li:nth-child(2) .cards-card-body h3 {
-  font-size: 22px;
+  font-size: 26px;
 }
 
 /* Promo card description */
@@ -277,11 +283,11 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Promo card CTA button - white outline style for first card */
+/* Promo card CTA button - white filled with dark text for first card */
 .cards.promo .cards-card-body a:not([href="#"]) {
   display: inline-block;
-  background-color: transparent;
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-dark, #191919);
   padding: 12px 32px;
   border: 2px solid var(--color-white);
   border-radius: 24px;
@@ -294,8 +300,8 @@
 }
 
 .cards.promo .cards-card-body a:not([href="#"]):hover {
-  background-color: var(--color-white);
-  color: var(--color-dark);
+  background-color: transparent;
+  color: var(--color-white);
 }
 
 .cards.promo .cards-card-body a:not([href="#"])::after {

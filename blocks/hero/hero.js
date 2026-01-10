@@ -49,11 +49,21 @@ export default function decorate(block) {
   block.querySelectorAll('.hero-content > div > div').forEach((div) => {
     const links = div.querySelectorAll('a');
     if (links.length >= 1 && !div.classList.contains('hero-badge') && !div.classList.contains('hero-disclaimer')) {
+      // Check if div contains only links (directly or inside a single P tag)
       const hasOnlyLinks = [...div.childNodes].every((node) =>
         node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '' ||
         node.tagName === 'A'
       );
-      if (hasOnlyLinks && links.length > 0) {
+
+      // Also check for links inside a P tag (common pattern)
+      const hasPWithOnlyLinks = div.children.length === 1 &&
+        div.children[0].tagName === 'P' &&
+        [...div.children[0].childNodes].every((node) =>
+          node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '' ||
+          node.tagName === 'A'
+        );
+
+      if ((hasOnlyLinks || hasPWithOnlyLinks) && links.length > 0) {
         div.classList.add('button-container');
         links.forEach((link, index) => {
           link.classList.add('button');
